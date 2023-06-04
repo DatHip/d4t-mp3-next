@@ -22,9 +22,9 @@ export const authOptions: NextAuthOptions = {
   ],
   adapter: FirestoreAdapter({
     credential : cert({
-      projectId: process.env.FIRE_BASE_PROJECT_ID,
-      clientEmail: process.env.FIRE_BASE_CLIENT_EMAIL,
-      privateKey: process.env.FIRE_BASE_PRIVATE_KEY,
+      projectId: env.FIRE_BASE_PROJECT_ID,
+      clientEmail: env.FIRE_BASE_CLIENT_EMAIL,
+      privateKey: env.FIRE_BASE_PRIVATE_KEY,
     })
   })
 };

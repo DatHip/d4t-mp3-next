@@ -16,6 +16,6 @@ import { env } from "@/env.mjs";
   measurementId: env.FIRE_BASE_MEASUREMENT_ID
 };
 
-export const app = getApps().length > 1 ? getApp() : initializeApp(firebaseConfig);
+export const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
 export const database = getFirestore(app);
 export const auth = getAuth(app);

@@ -23,6 +23,8 @@ export const env = createEnv({
     FIRE_BASE_MESSAGING_SENDER_ID: z.string(),
     FIRE_BASE_APP_ID: z.string(),
     FIRE_BASE_MEASUREMENT_ID: z.string(),
+    FIRE_BASE_CLIENT_EMAIL: z.string(),
+    FIRE_BASE_PRIVATE_KEY: z.string(),
   },
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
@@ -43,7 +45,8 @@ export const env = createEnv({
     FIRE_BASE_MESSAGING_SENDER_ID: process.env.FIRE_BASE_MESSAGING_SENDER_ID,
     FIRE_BASE_APP_ID: process.env.FIRE_BASE_APP_ID,
     FIRE_BASE_MEASUREMENT_ID: process.env.FIRE_BASE_MEASUREMENT_ID,
-
+    FIRE_BASE_CLIENT_EMAIL: process.env.FIRE_BASE_CLIENT_EMAIL,
+    FIRE_BASE_PRIVATE_KEY: process.env.FIRE_BASE_PRIVATE_KEY,
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 });

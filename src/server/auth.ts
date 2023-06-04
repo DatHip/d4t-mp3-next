@@ -7,7 +7,7 @@ import { env } from "@/env.mjs";
 import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
-import { app } from '@/lib/firestore';
+import { cert } from 'firebase-admin/app';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -16,21 +16,17 @@ export const authOptions: NextAuthOptions = {
       clientSecret: env.GITHUB_SECRET ,
     }),
    GoogleProvider({
-      clientId: env.GOOGLE_ID ,
-      clientSecret: env.GOOGLE_SECRET 
+      clientId: env.GOOGLE_CLIENT_ID ,
+      clientSecret: env.GOOGLE_CLIENT_SECRET 
     }),
   ],
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  adapter: FirestoreAdapter(app),
-  pages: {
-    signIn: '/',
-  },
-  debug: env.NODE_ENV === 'development',
-  session: {
-    strategy: "jwt",
-  },
-  secret: env.NEXTAUTH_SECRET,
-
+  adapter: FirestoreAdapter({
+    credential : cert({
+      projectId: process.env.FIRE_BASE_PROJECT_ID,
+      clientEmail: process.env.FIRE_BASE_CLIENT_EMAIL,
+      privateKey: process.env.FIRE_BASE_PRIVATE_KEY,
+    })
+  })
 };
 
 /**

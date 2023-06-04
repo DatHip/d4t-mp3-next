@@ -1,11 +1,12 @@
 'use client'
 import { type NextPage } from 'next'
 import Head from 'next/head'
-import { signIn, useSession } from 'next-auth/react'
+import { signIn, useSession, signOut } from 'next-auth/react'
+import { auth } from '@/lib/firestore'
 
 const Home: NextPage = () => {
   const session = useSession()
-
+  console.log('🚀 ~ file: index.tsx:9 ~ session:', session)
   return (
     <>
       <Head>
@@ -32,6 +33,13 @@ const Home: NextPage = () => {
               className='bg-slate-600 px-5 py-3 text-white'
             >
               Login white Github
+            </button>
+            <button
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onClick={() => signOut()}
+              className='bg-slate-600 px-5 py-3 text-white'
+            >
+              Logout
             </button>
           </div>
         </div>

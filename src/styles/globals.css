@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: all .1s linear;
+}
+
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+}

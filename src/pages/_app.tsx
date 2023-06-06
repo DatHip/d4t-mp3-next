@@ -5,6 +5,7 @@ import '@/styles/grid.css'
 import '@/styles/root.css'
 import '@/styles/iconZs.css'
 import '@/styles/globals.css'
+import MainLayout from '@/components/layouts/Main/MainLayout'
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,7 +13,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
     </SessionProvider>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function SliderLeft () {
-  return <div>SliderLeft</div>
+  return <aside>SliderLeft</aside>
 }

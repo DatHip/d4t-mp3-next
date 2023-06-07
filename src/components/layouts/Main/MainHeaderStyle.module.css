@@ -1,0 +1,15 @@
+.header::before {
+    content: "";
+    position: absolute;
+    height: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* bottom: 100%; */
+    z-index: -1;
+    background-color: var(--layout-header-bg);
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    width: calc(100% + 2px);
+    box-shadow: 0 3px 5px var(--sticky-header-box-shadow);
+}

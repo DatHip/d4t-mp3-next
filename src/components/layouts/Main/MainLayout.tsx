@@ -10,9 +10,9 @@ interface Props {
 export default function MainLayout({ children }: Props) {
   return (
     <div className='relative overflow-hidden bg-[var(--layout-bg)] bg-no-repeat flex min-h-screen bg-main'>
+      <SliderLeft></SliderLeft>
       <MainHeader></MainHeader>
       <div>{children}</div>
-      <SliderLeft></SliderLeft>
       <BottomMain></BottomMain>
     </div>
   )

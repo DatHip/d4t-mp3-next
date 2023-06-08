@@ -1,4 +1,3 @@
-
 import IconBack from '@/asset/icons/IconBack';
 export default function NavRoute() {
     return (

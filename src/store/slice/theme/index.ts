@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 "use client"
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -35,9 +39,21 @@ const slice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    refreshToken: (state: TThemes, action) => {
-      state.name = action.payload      
-    },
+   onChangeTheme : (state ,{payload}) => {
+      state = payload ;
+      const rootElement = document.documentElement;
+      if (payload?.bgImg) {
+        rootElement.classList.add("theme-bg-image");
+      } else {
+        rootElement.classList.remove("theme-bg-image");
+      }
+      if (payload?.dataStyle) {
+        const styleAttributes : any = payload?.dataStyle?.map((e:never) => e).join(" ; ");
+        rootElement.setAttribute("style", styleAttributes);
+      } else {
+        rootElement.removeAttribute("style");
+      }
+   }
   },
 });
 
@@ -45,5 +61,5 @@ export const useThemeSlice = () => {
   return { actionUser: slice.actions };
 };
 
-export const { actions: themeActions, reducer } = slice;
+export const { onChangeTheme } = slice.actions;
 export const themeReducer = slice?.reducer;

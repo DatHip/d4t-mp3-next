@@ -21,6 +21,7 @@ const config = {
   plugins: ["@typescript-eslint"],
   extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   rules: {
+    "no-fallthrough": "error",
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {

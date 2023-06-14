@@ -1,4 +1,3 @@
-'use client'
 import { type Metadata } from 'next'
 import { type NextPage } from 'next'
 import Head from 'next/head'

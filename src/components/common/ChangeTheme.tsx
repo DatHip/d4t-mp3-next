@@ -10,14 +10,12 @@ const ChangeTheme = () => {
 
     useLayoutEffect(() => {
         if(!rootElement.getAttribute('data-theme')) {
-            dispatch(onChangeTheme(THEMES[1].items[2]))
+            dispatch(onChangeTheme(THEMES[2].items[2]))
         } 
     } ,[])
 
     return (
-        <>
-                    
-        </>
+        <></>
     );
 };
 

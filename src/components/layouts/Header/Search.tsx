@@ -3,7 +3,7 @@ export default function Search() {
     return (
         <form className="relative w-full max-w-[440px] flex items-center gap-3">
             <div className="flex rounded-3xl bg-[var(--alpha-bg) w-full h-10 flex items-center justify-center">
-                <button className="zm-btn button text-lg">
+                <button className="zm-btn button">
                     <i className="icon ic-search"></i>
                 </button>
             </div>

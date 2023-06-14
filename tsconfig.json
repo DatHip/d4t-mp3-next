@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "strict": false,
+    "noImplicitAny": true,
+    "target": "ES5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -19,7 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "noFallthroughCasesInSwitch": true,
   },
   "include": [
     ".eslintrc.cjs",

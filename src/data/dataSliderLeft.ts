@@ -1,6 +1,6 @@
 
-type dataSliderLeftType = {
-    id: number,
+export type dataSliderLeftType = {
+    id?: number,
     to: string,
     title: string,
     icon: string

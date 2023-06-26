@@ -8,5 +8,10 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: [
+      'avatar.talk.zdn.vn',
+    ]
+  },
 };
 export default config;

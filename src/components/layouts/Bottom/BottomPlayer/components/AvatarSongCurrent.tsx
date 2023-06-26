@@ -1,14 +1,11 @@
 import BoxHover from '@/components/common/BoxHover'
 import Image from 'next/image'
-import React from 'react'
-
+import OpenInFullOutlinedIcon from '@mui/icons-material/OpenInFullOutlined'
 const AvatarSongCurrent = () => {
   return (
     <BoxHover
-      childrenHover={
-        <span className='material-icons-outlined'> open_in_full </span>
-      }
-      className='w-16 h-16 rounded-lg shadow-lg'
+      childrenHover={<OpenInFullOutlinedIcon></OpenInFullOutlinedIcon>}
+      className='w-16 h-16 text-white rounded-lg shadow-lg cursor-pointer'
     >
       <Image
         width={64}

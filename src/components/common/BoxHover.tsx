@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 interface BoxHoverProps {
   children?: React.ReactNode
   childrenHover: React.ReactNode
@@ -14,11 +16,14 @@ const BoxHover: React.FC<BoxHoverProps> = ({
   onClick
 }) => {
   return (
-    <div className={`group relative overflow-hidden rounded-lg ${className}`}>
+    <div
+      onClick={onClick}
+      className={`group relative overflow-hidden rounded-lg transition-all ${className}`}
+    >
       {children}
 
       <div
-        className={`absolute z-10  hidden items-center justify-center bg-[rgba(0,0,0,0.4)] group-hover:flex ${classNameHover} bottom-0 left-0 right-0 top-0 `}
+        className={`absolute z-10 hidden items-center justify-center bg-[rgba(0,0,0,0.4)] group-hover:flex ${classNameHover} bottom-0 left-0 right-0 top-0 `}
       >
         {childrenHover}
       </div>
@@ -26,4 +31,4 @@ const BoxHover: React.FC<BoxHoverProps> = ({
   )
 }
 
-export default BoxHover
+export default memo(BoxHover)

@@ -11,6 +11,7 @@ const config = {
   images: {
     domains: [
       'avatar.talk.zdn.vn',
+      "photo-resize-zmp3.zmdcdn.me"
     ]
   },
 };

@@ -28,7 +28,7 @@ export const dataSliderLeft: dataSliderLeftType[] = [
     {
         id: 4,
         to: '/new-feed',
-        title: 'Theo Dỗi',
+        title: 'Theo Dõi',
         icon: "ic-24-FeedTab"
     },
     {

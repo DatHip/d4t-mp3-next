@@ -10,7 +10,7 @@ const BottomPlayerLeft = () => {
       <InfoSongCurrent></InfoSongCurrent>
       <BoxHoverAction content='Yêu thích'>
         <div className='flex items-center justify-center w-6 h-6'>
-          <i className='mt-1 icon ic-like '></i>
+          <i className='mt-1 icon ic-like'></i>
         </div>
       </BoxHoverAction>
     </div>

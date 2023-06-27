@@ -1,8 +1,7 @@
-import { type Metadata } from 'next'
-import { type NextPage } from 'next'
 import Head from 'next/head'
-import { useSession } from 'next-auth/react'
+// import { useSession } from 'next-auth/react'
 import ChangeTheme from '@/components/common/ChangeTheme'
+import { type Metadata, type NextPage } from 'next'
 
 export const metadata: Metadata = {
   title: 'Trang chủ - D4T MP3',

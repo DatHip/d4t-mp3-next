@@ -9,8 +9,8 @@ const BottomPlayerLeft = () => {
       <AvatarSongCurrent></AvatarSongCurrent>
       <InfoSongCurrent></InfoSongCurrent>
       <BoxHoverAction content='Yêu thích'>
-        <div className='flex items-center justify-center w-6 h-6'>
-          <i className='mt-1 icon ic-like'></i>
+        <div className='flex h-6 w-6 items-center justify-center'>
+          <i className='icon ic-like mt-1 !text-base'></i>
         </div>
       </BoxHoverAction>
     </div>

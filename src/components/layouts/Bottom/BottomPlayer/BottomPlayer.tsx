@@ -1,6 +1,6 @@
 import React from 'react'
 import BottomPlayerLeft from './BottomPlayerLeft'
-import BottomPlayerRight from './BottomPlayerRight'
+import BottomPlayerRight from './BottomPlayerRight/BottomPlayerRight'
 import BottomPlayerCenter from './ButtomPlayerCenter/BottomPlayerCenter'
 
 const BottomPlayer = () => {

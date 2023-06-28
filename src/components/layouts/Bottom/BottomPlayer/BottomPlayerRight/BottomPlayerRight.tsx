@@ -2,6 +2,7 @@ import React from 'react'
 import ButtonMV from './components/ButtonMV'
 import ButtonKaraoke from './components/ButtonKaraoke'
 import ButtonVolume from './components/ButtonVolume'
+import ButtonToggleRight from './components/ButtonToggleRight'
 
 const BottomPlayerRight = () => {
   return (
@@ -9,6 +10,8 @@ const BottomPlayerRight = () => {
       <ButtonMV></ButtonMV>
       <ButtonKaraoke></ButtonKaraoke>
       <ButtonVolume></ButtonVolume>
+      <div className='h-8 w-[1px] bg-[var(--border-player)]'></div>
+      <ButtonToggleRight></ButtonToggleRight>
     </div>
   )
 }

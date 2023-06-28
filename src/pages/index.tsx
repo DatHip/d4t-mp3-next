@@ -1,6 +1,5 @@
 import Head from 'next/head'
 // import { useSession } from 'next-auth/react'
-import ChangeTheme from '@/components/common/ChangeTheme'
 import { type Metadata, type NextPage } from 'next'
 
 export const metadata: Metadata = {
@@ -15,9 +14,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Khám Phá | D4T MP3</title>
       </Head>
-      <main>
-        <ChangeTheme></ChangeTheme>
-      </main>
+      <main></main>
     </>
   )
 }

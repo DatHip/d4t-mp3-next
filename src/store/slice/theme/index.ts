@@ -47,6 +47,9 @@ const slice = createSlice({
       } else {
         rootElement.classList.remove("theme-bg-image");
       }
+      if(payload?.dataTheme) {
+        rootElement.setAttribute("data-theme", payload?.dataTheme );
+      }
       if (payload?.dataStyle) {
         const styleAttributes : any = payload?.dataStyle?.map((e:never) => e).join(" ; ");
         rootElement.setAttribute("style", styleAttributes);

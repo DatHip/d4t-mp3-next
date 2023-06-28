@@ -53,3 +53,6 @@ img {
   left: 50%;
 transform: translate(-50%, -50%);
 }
+.box-shadow-queue {
+  box-shadow: var(--box-shadow-queue);
+}

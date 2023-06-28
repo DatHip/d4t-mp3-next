@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-title-in-document-head */
 import { Html, Head, Main, NextScript } from 'next/document'
-
-export default function Document () {
+import { createGetInitialProps } from '@mantine/next'
+const getInitialProps = createGetInitialProps()
+function Document () {
   return (
     <Html>
       <Head>
@@ -15,7 +16,7 @@ export default function Document () {
           property='og:description'
           content='D4T MP3 | Nghe nhạc chất lượng cao '
         />
-        <meta 
+        <meta
           property='description'
           content='D4T MP3 | Nghe nhạc chất lượng cao '
         />
@@ -28,3 +29,7 @@ export default function Document () {
     </Html>
   )
 }
+
+Document.getInitialProps = getInitialProps
+
+export default Document

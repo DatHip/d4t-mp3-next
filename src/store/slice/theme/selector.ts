@@ -1,6 +1,6 @@
-import { createSelector } from '@reduxjs/toolkit';
-import { initialState } from '.';
-import { type RootState } from './../../../types/RootState';
+import { createSelector } from '@reduxjs/toolkit'
+import { initialState } from '.'
+import { RootState } from '@/types'
 
-const selectDomain = (state: RootState) => state?.theme || initialState;
-export const selectThemes = createSelector([selectDomain], theme =>theme);
+const selectDomain = (state: RootState) => state?.theme || initialState
+export const selectThemes = createSelector([selectDomain], theme => theme)

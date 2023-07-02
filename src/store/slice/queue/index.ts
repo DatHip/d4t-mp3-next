@@ -8,6 +8,7 @@ export type typeInitialQueue = {
   isLoop: boolean
   isClock: boolean
   isReady: boolean
+  isRandom: boolean
   isMuted: boolean
   volume: number
   duration: number
@@ -20,6 +21,7 @@ export const initialState: typeInitialQueue = {
   isLoop: false,
   isClock: false,
   isReady: false,
+  isRandom: false,
   isMuted: false,
   volume: 0.8,
   duration: 0,
@@ -29,12 +31,26 @@ export const initialState: typeInitialQueue = {
 const slice = createSlice({
   name: 'queue',
   initialState,
-  reducers: {}
+  reducers: {
+    toggleLoop: (state: typeInitialQueue) => {
+      state.isLoop = !state.isLoop
+    },
+    toggleMuted: (state: typeInitialQueue) => {
+      state.isMuted = !state.isMuted
+    },
+    toggleRandom: (state: typeInitialQueue) => {
+      state.isRandom = !state.isRandom
+    },
+    changeVolume: (state: typeInitialQueue, { payload }) => {
+      state.isMuted = payload === 0
+      state.volume = payload
+    }
+  }
 })
 
 export const useQueueSlice = () => {
-  return { actionQueue: slice.actions }
+  return { queueActions: slice.actions }
 }
 
-export const { actions: QueueActions, reducer } = slice
+export const { actions: queueActions, reducer } = slice
 export const queueReducer = slice?.reducer

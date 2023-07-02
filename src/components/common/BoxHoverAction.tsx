@@ -13,16 +13,20 @@ const BoxHoverAction: React.FC<BoxHoverActionProps> = ({
   onClick,
   content
 }) => {
-  return (
-    <Tippy content={content}>
-      <div
-        onClick={onClick}
-        className={`flex cursor-pointer items-center justify-center rounded-full p-[6px] transition-all hover:bg-[var(--hover-tooltip-opacity)] ${className}`}
-      >
-        {children}
-      </div>
-    </Tippy>
+  const node = (
+    <div
+      onClick={onClick}
+      className={`flex cursor-pointer items-center justify-center rounded-full p-[6px] transition-all hover:bg-[var(--hover-tooltip-opacity)] ${className}`}
+    >
+      {children}
+    </div>
   )
+
+  if (!content) {
+    return node
+  }
+
+  return <Tippy content={content}>{node}</Tippy>
 }
 
 export default memo(BoxHoverAction)

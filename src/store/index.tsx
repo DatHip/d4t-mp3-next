@@ -1,25 +1,48 @@
-import rootReducer from './reducers';
-import storage from 'redux-persist/lib/storage';
-import { createStore } from 'redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistReducer, persistStore } from 'redux-persist';
-import { Provider } from 'react-redux';
-import { useUserSlice } from './slice/user';
+import rootReducer from "./reducers";
+import storage from "redux-persist/lib/storage";
+import { configureStore } from "@reduxjs/toolkit";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import { useUserSlice } from "./slice/user";
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
-const persistedReducer = persistReducer({
-  key: 'd4t-mp3',
-  storage,
-  version: 1,
-  migrate: state => {
-    return Promise.resolve(state);
+const persistedReducer = persistReducer(
+  {
+    key: "d4t-mp3",
+    storage,
+    version: 1,
+    migrate: (state) => {
+      return Promise.resolve(state);
+    },
   },
-}, rootReducer);
-const store = createStore(persistedReducer);
+  rootReducer
+);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (defaultMiddleware) => [
+    ...defaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  ],
+  devTools: true,
+});
+
 export const persistor = persistStore(store);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function ReduxStore({ children } : any) {
-  useUserSlice()
+export default function ReduxStore({ children }: any) {
+  useUserSlice();
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

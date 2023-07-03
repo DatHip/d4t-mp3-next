@@ -205,7 +205,7 @@ export const THEMES = [
         ]
       },
       {
-        name: 'Jennie Kim',
+        name: 'Jisoo Kim',
         itemS:
           'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jisoo.jpg',
         dataTheme: 'light',

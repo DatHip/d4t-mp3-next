@@ -21,7 +21,11 @@ export default function MainLayout({ children }: Props) {
     >
       <SliderLeft></SliderLeft>
       <MainHeader></MainHeader>
-      <div>{children}</div>
+      <div className="mb-[91px] mt-[70px] w-full">
+        <div className="mx-auto mt-8 max-w-[1280px] px-[var(--padding-section)]">
+          {children}
+        </div>
+      </div>
       <BottomMain></BottomMain>
     </div>
   );

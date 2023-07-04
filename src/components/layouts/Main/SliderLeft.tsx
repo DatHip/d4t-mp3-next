@@ -4,7 +4,7 @@ import NavSlider from "../SliderLeft/NavSlider";
 
 function SliderLeft() {
   return (
-    <aside className="fixed z-[100] h-[calc(100vh-90px)] w-[240px] bg-[var(--sidebar-bg)] zm13:relative">
+    <aside className="relative z-[100] h-[calc(100vh-90px)] min-w-[240px] bg-[var(--sidebar-bg)]">
       <div className="ml-6 mt-4 max-w-[120px]">
         <Image
           className="object-cover"

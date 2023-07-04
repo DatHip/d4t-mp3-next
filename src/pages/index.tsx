@@ -6,6 +6,7 @@ import { type Metadata, type NextPage } from "next";
 import { tmdAPI } from "@/utils/apiRouter";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { apiGet } from "@/utils/https/request";
+import ItemHome from "@/components/common/ItemHome";
 
 export const metadata: Metadata = {
   title: "Trang chủ - D4T MP3",
@@ -16,13 +17,18 @@ const Home: NextPage<any> = (props) => {
   const { data } = useQuery(["home"], () => apiGet(tmdAPI.getHome), {
     initialData: props.data,
   });
-  console.log(data.data);
+
   return (
     <>
       <Head>
         <title>Khám Phá | D4T MP3</title>
       </Head>
-      <main>Home</main>
+      <main>
+        {data?.data?.items &&
+          data?.data?.items?.map((e: any, key: number) => {
+            return <ItemHome key={key} data={e}></ItemHome>;
+          })}
+      </main>
     </>
   );
 };

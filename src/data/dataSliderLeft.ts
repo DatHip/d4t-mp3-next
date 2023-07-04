@@ -26,19 +26,19 @@ export const dataSliderLeft: dataSliderLeftType[] = [
   },
   {
     id: 4,
-    to: '/new-feed',
+    to: '/newfeed',
     title: 'Theo Dõi',
     icon: 'ic-24-FeedTab'
   },
   {
     id: 5,
-    to: '/new-music',
+    to: '/newmusic',
     title: 'Nhạc Mới',
     icon: 'ic-24-NewReleaseTab'
   },
   {
     id: 6,
-    to: '/new-music',
+    to: '/category',
     title: 'Thể Loại',
     icon: 'ic-24-GenreTab'
   },

@@ -1,32 +1,47 @@
-import MainLayout from '@/components/layouts/Main/MainLayout'
-import { SessionProvider } from 'next-auth/react'
-import '@/styles/grid.css'
-import '@/styles/root.css'
-import '@/styles/iconZs.css'
-import '@/styles/globals.css'
-import 'tippy.js/dist/tippy.css'
-import { type Session } from 'next-auth'
-import { type AppType } from 'next/app'
-import ReduxStore from '@/store'
-import { MantineProvider } from '@mantine/core'
-import ChangeTheme from '@/components/common/ChangeTheme'
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import MainLayout from "@/components/layouts/Main/MainLayout";
+import { SessionProvider } from "next-auth/react";
+import "@/styles/grid.css";
+import "@/styles/root.css";
+import "@/styles/iconZs.css";
+import "@/styles/globals.css";
+import "tippy.js/dist/tippy.css";
+import { type Session } from "next-auth";
+import { type AppType } from "next/app";
+import ReduxStore from "@/store";
+import { MantineProvider } from "@mantine/core";
+import ChangeTheme from "@/components/common/ChangeTheme";
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import { useState } from "react";
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps }
-}) => {
+const MyApp: AppType<{
+  session: Session | null | any;
+  dehydratedState: any;
+}> = ({ Component, pageProps: { session, ...pageProps } }) => {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
     <ReduxStore>
       <SessionProvider session={session}>
         <MantineProvider>
           <ChangeTheme></ChangeTheme>
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
+          <QueryClientProvider client={queryClient}>
+            <Hydrate state={pageProps?.dehydratedState}>
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
+            </Hydrate>
+          </QueryClientProvider>
         </MantineProvider>
       </SessionProvider>
     </ReduxStore>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;

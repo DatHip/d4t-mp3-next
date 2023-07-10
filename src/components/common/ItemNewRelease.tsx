@@ -8,6 +8,7 @@ import BoxHover from "@/components/common/BoxHover";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ListArtists from "./ListArtists";
 import timeLine from "@/utils/timeLine";
+import BoxHoverAction from "@/components/common/BoxHoverAction";
 
 interface IItemNewRelease {
   data: any;
@@ -18,7 +19,7 @@ const ItemNewRelease: React.FC<IItemNewRelease> = ({ data }) => {
     <div className="group flex items-center justify-between rounded-md p-2 transition-all hover:bg-[var(--alpha-bg)]">
       <div className="flex items-center justify-center gap-2">
         <BoxHover
-          className="h-[60px] w-[60px]"
+          className="max-h-[60px] min-h-[60px] min-w-[60px] max-w-[60px]"
           childrenHover={<i className="icon action-play ic-play"></i>}
         >
           <figure>
@@ -35,7 +36,11 @@ const ItemNewRelease: React.FC<IItemNewRelease> = ({ data }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center"></div>
+      <div className="hidden  items-center justify-center group-hover:flex">
+        <BoxHoverAction>
+          <i className="icon ic-like !text-base"></i>
+        </BoxHoverAction>
+      </div>
     </div>
   );
 };

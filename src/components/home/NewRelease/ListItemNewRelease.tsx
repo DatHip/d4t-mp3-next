@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import ItemNewRelease from "@/components/common/ItemNewRelease";
 import React from "react";
 
 const ListItemNewRelease = ({ data }: any) => {
@@ -9,10 +10,22 @@ const ListItemNewRelease = ({ data }: any) => {
   const list3 = data.slice(8, 12);
 
   return (
-    <div className="row">
-      <div className="col l-4 c-9 m-6"></div>
-      <div className="col l-4 c-9 m-6"></div>
-      <div className="col l-4 c-0 m-6"></div>
+    <div className="row mt-5">
+      <div className="col l-4 c-9 m-f-6">
+        {list1.map((e: any) => {
+          return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;
+        })}
+      </div>
+      <div className="col l-4 c-9 m-f-6">
+        {list2.map((e: any) => {
+          return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;
+        })}
+      </div>
+      <div className="col l-4 c-0 m-f-6">
+        {list3.map((e: any) => {
+          return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;
+        })}
+      </div>
     </div>
   );
 };

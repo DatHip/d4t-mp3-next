@@ -1,11 +1,11 @@
-import { memo } from "react"
+import { memo } from "react";
 
 interface BoxHoverProps {
-  children?: React.ReactNode
-  childrenHover: React.ReactNode
-  className?: string
-  classNameHover?: string
-  onClick?: () => void
+  children?: React.ReactNode;
+  childrenHover: React.ReactNode;
+  className?: string;
+  classNameHover?: string;
+  onClick?: () => void;
 }
 
 const BoxHover: React.FC<BoxHoverProps> = ({
@@ -13,7 +13,7 @@ const BoxHover: React.FC<BoxHoverProps> = ({
   childrenHover,
   className,
   classNameHover,
-  onClick
+  onClick,
 }) => {
   return (
     <div
@@ -28,7 +28,7 @@ const BoxHover: React.FC<BoxHoverProps> = ({
         {childrenHover}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(BoxHover)
+export default memo(BoxHover);

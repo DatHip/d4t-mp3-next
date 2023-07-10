@@ -15,6 +15,7 @@ import "swiper/css";
 import { Navigation, Autoplay, Pagination, Lazy } from "swiper";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+
 const SlideStyle = styled.div`
   flex-grow: 1;
   margin: 0 auto;

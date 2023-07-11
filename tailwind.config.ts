@@ -3,6 +3,9 @@ import { type Config } from "tailwindcss";
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily : {
+      rank : ["Roboto", "sans-serif"]
+    },
     extend: {
        backgroundImage: {
         'miniplayer': 'var(--miniplayer-bg-img)',

@@ -16,7 +16,6 @@ html,
 body {
   -webkit-tap-highlight-color: transparent;
   color: var(--text-primary);
-  overflow: hidden;
 }
 
 img {
@@ -133,4 +132,13 @@ input[type="range"]::-ms-track {
   border: none;
     background: var(--progressbar-player-bg);
 
+}
+.release-item-chart {
+  opacity: 0.4;
+  -webkit-text-stroke: 1px #fff;
+  font-size: 40px;
+  font-weight: 900;
+  color: transparent;
+  line-height: 1;
+  font-family: "Roboto", sans-serif;
 }

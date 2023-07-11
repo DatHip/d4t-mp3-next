@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 const Home: NextPage<any> = (props) => {
   const { data } = useQuery(["home"], () => apiGet(tmdAPI.getHome), {
     initialData: props.data,
+    staleTime: 300000,
   });
 
   return (

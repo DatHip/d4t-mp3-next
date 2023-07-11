@@ -20,22 +20,16 @@ const TitleLinkArtist = ({ data }: { data: any }) => {
     </Link>
   );
 };
-
 const ListArtists: React.FC<IListArtists> = ({ data, className }) => {
   const artistNames = data.map((artist, index) => (
     <TitleLinkArtist data={artist} key={index}></TitleLinkArtist>
   ));
 
-  let renderedList: any;
+  let renderedList: any = [];
 
   if (artistNames.length > 3) {
     const slicedNames = artistNames.slice(0, 3);
-    renderedList = (
-      <>
-        {slicedNames}
-        <span>...</span>
-      </>
-    );
+    renderedList = [...slicedNames, <span key="ellipsis">...</span>];
   } else {
     renderedList = artistNames;
   }

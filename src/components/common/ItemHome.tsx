@@ -3,6 +3,8 @@
 import React, { memo } from "react";
 import SlideHome from "../home/SlideHome";
 import NewRelease from "../home/NewRelease";
+import ListCarousel from "../home/ListCarousel";
+import NewReleaseSlider from "../home/NewReleaseSlider";
 
 const ItemHome = ({ data }: any) => {
   if (data?.sectionType === "banner") {
@@ -12,6 +14,15 @@ const ItemHome = ({ data }: any) => {
   if (data?.sectionType === "new-release") {
     return <NewRelease data={data}></NewRelease>;
   }
+
+  if (data?.sectionType === "playlist") {
+    return <ListCarousel data={data}></ListCarousel>;
+  }
+
+  if (data?.sectionType === "newReleaseChart") {
+    return <NewReleaseSlider data={data}></NewReleaseSlider>;
+  }
+
   return <div></div>;
 };
 

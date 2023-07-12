@@ -5,6 +5,7 @@ import SlideHome from "../home/SlideHome";
 import NewRelease from "../home/NewRelease";
 import ListCarousel from "../home/ListCarousel";
 import NewReleaseSlider from "../home/NewReleaseSlider";
+import WeekChartHome from "../home/WeekChartHome";
 
 const ItemHome = ({ data }: any) => {
   if (data?.sectionType === "banner") {
@@ -21,6 +22,10 @@ const ItemHome = ({ data }: any) => {
 
   if (data?.sectionType === "newReleaseChart") {
     return <NewReleaseSlider data={data}></NewReleaseSlider>;
+  }
+
+  if (data?.sectionType === "weekChart") {
+    return <WeekChartHome data={data}></WeekChartHome>;
   }
 
   return <div></div>;

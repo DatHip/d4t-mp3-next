@@ -74,7 +74,6 @@ const SlideStyle = styled.div`
 const NewReleaseSlider: React.FC<INewReleaseSlider> = ({ data }) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
-  console.log(data);
   return (
     <LazyLoadComponent>
       <div>

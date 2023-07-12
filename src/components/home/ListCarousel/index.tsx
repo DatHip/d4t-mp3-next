@@ -7,6 +7,7 @@ import LinkToAll from "@/components/common/LinkToAll";
 import TitleList from "@/components/common/TitleList";
 import Link from "next/link";
 import { memo } from "react";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 interface IListCarousel {
   data: any;
@@ -14,7 +15,7 @@ interface IListCarousel {
 
 const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
   return (
-    <div>
+    <LazyLoadComponent threshold={30}>
       <div className="mb-3 mt-9 flex items-center justify-between">
         <TitleList className="!my-0">{data?.title}</TitleList>
         {data?.link && <LinkToAll href={data?.link}></LinkToAll>}
@@ -28,7 +29,7 @@ const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
           ></CardPlaylist>
         ))}
       </div>
-    </div>
+    </LazyLoadComponent>
   );
 };
 

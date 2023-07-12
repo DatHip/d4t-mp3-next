@@ -6,7 +6,7 @@ import TitleList from "@/components/common/TitleList";
 import React from "react";
 import { useState } from "react";
 import ListItemNewRelease from "./ListItemNewRelease";
-
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 enum ACTIVE {
   ALL,
   OTHER,
@@ -24,7 +24,7 @@ const NewRelease = ({ data }: any) => {
       : data?.items.others;
 
   return (
-    <div>
+    <LazyLoadComponent threshold={20}>
       <TitleList>{data?.title}</TitleList>
       <div className="flex items-start justify-start gap-4">
         <FilterButton
@@ -47,7 +47,7 @@ const NewRelease = ({ data }: any) => {
         </FilterButton>
       </div>
       <ListItemNewRelease data={selectData}></ListItemNewRelease>
-    </div>
+    </LazyLoadComponent>
   );
 };
 

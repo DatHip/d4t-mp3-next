@@ -75,7 +75,7 @@ const NewReleaseSlider: React.FC<INewReleaseSlider> = ({ data }) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   return (
-    <LazyLoadComponent>
+    <LazyLoadComponent threshold={30}>
       <div>
         <div className="mb-3 mt-9 flex items-center justify-between">
           <TitleList className="!my-0">{data?.title}</TitleList>

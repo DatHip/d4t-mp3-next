@@ -127,7 +127,7 @@ const SlideHome = ({ data }: any) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   return (
-    <LazyLoadComponent>
+    <LazyLoadComponent threshold={30}>
       <SlideStyle>
         <div className="gallery ml-[-15px] mr-[-15px]">
           <div className="gallery-container slider_list min-h-[160px]">

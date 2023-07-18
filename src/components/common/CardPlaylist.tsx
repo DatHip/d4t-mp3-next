@@ -6,6 +6,7 @@ import BoxHover from "@/components/common/BoxHover";
 import Image from "next/image";
 import Link from "next/link";
 import ListArtists from "./ListArtists";
+import WrapperImage from "./WrapperImage";
 interface ICardPlaylist {
   data: any;
   hideTitle?: boolean;
@@ -14,18 +15,16 @@ interface ICardPlaylist {
 const CardPlaylist: React.FC<ICardPlaylist> = ({ data, hideTitle }) => {
   return (
     <div className="flex-1 overflow-hidden">
-      <BoxHover
-        className="max-h-[266px] max-w-[266px]"
-        childrenHover={<i className="icon action-play ic-play"></i>}
-      >
-        <Image
-          loading="lazy"
-          width={266}
-          height={266}
-          alt={data?.title}
-          src={data?.thumbnailM}
-          className="max-h-[266px] max-w-[266px] transition-transform duration-700 group-hover:scale-110"
-        ></Image>
+      <BoxHover childrenHover={<i className="icon action-play ic-play"></i>}>
+        <WrapperImage>
+          <Image
+            loading="lazy"
+            fill
+            alt={data?.title}
+            src={data?.thumbnailM}
+            className="h-auto w-full transition-transform duration-700 group-hover:scale-110"
+          ></Image>
+        </WrapperImage>
       </BoxHover>
       <div className="mt-2">
         {!hideTitle && (

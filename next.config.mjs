@@ -9,6 +9,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
+    unoptimized: true,
     domains: [
       'avatar.talk.zdn.vn',
       'zmp3-static.zmdcdn.me',

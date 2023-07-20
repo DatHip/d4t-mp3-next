@@ -14,14 +14,14 @@ export default function MainLayout({ children }: Props) {
   const themeBg = useSelector(selectThemes).bgImg;
   return (
     <div
-      className={`relative flex min-h-screen overflow-hidden bg-[var(--layout-bg)] bg-main bg-no-repeat`}
+      className={`relative flex h-full max-h-[100vh] overflow-x-hidden bg-[var(--layout-bg)] bg-main bg-no-repeat `}
       style={{
         backgroundImage: `url(${themeBg ? themeBg : ""})`,
       }}
     >
       <SliderLeft></SliderLeft>
       <MainHeader></MainHeader>
-      <div className=" mb-[120px] ml-[240px] mt-[70px] w-full">
+      <div className=" mb-[120px] ml-[240px] mt-[70px] h-full w-full">
         <div className="mx-auto mt-8 max-w-[1280px] px-[var(--padding-section)]">
           {children}
         </div>

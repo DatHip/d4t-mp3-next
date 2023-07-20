@@ -10,7 +10,6 @@ interface IWeekChartHome {
 }
 
 const WeekChartHome: React.FC<IWeekChartHome> = ({ data }) => {
-  console.log(data);
   return (
     <LazyLoadComponent threshold={30}>
       <div className="row mt-9 overflow-x-auto">

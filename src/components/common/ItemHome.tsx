@@ -6,6 +6,7 @@ import NewRelease from "../home/NewRelease";
 import ListCarousel from "../home/ListCarousel";
 import NewReleaseSlider from "../home/NewReleaseSlider";
 import WeekChartHome from "../home/WeekChartHome";
+import RadioHome from "../home/RadioHome";
 
 const ItemHome = ({ data }: any) => {
   if (data?.sectionType === "banner") {
@@ -26,6 +27,10 @@ const ItemHome = ({ data }: any) => {
 
   if (data?.sectionType === "weekChart") {
     return <WeekChartHome data={data}></WeekChartHome>;
+  }
+
+  if (data?.sectionId === "hLiveRadio") {
+    return <RadioHome data={data}></RadioHome>;
   }
 
   return <div></div>;

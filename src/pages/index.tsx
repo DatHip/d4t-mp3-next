@@ -19,8 +19,6 @@ const Home: NextPage<any> = (props) => {
     staleTime: 300000,
   });
 
-  console.log(props.data)
-
   return (
     <>
       <Head>

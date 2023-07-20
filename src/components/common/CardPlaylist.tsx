@@ -22,7 +22,7 @@ const CardPlaylist: React.FC<ICardPlaylist> = ({ data, hideTitle }) => {
             fill
             alt={data?.title}
             src={data?.thumbnailM}
-            className="h-auto w-full transition-transform duration-700 group-hover:scale-110"
+            className="image_hover"
           ></Image>
         </WrapperImage>
       </BoxHover>

@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+@layer components {
+  .image_hover {
+    @apply h-auto w-full transition-transform duration-700 group-hover:scale-110
+  }
+}
+
 *,
 ::after,
 ::before {

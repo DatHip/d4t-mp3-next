@@ -33,6 +33,16 @@ const ItemRadio = ({ data }: IItemRadioProps) => {
               className="!relative z-10"
             ></Image>
           </div>
+          <div className="absolute -bottom-2 -right-1 h-auto w-[36%]">
+            <WrapperImage classNameWrapper="overflow-hidden !rounded-full border-[2px] border-[var(--layout-bg)] z-20">
+              <Image
+                loading="lazy"
+                fill
+                src={data?.thumbnail}
+                alt={data?.title}
+              ></Image>
+            </WrapperImage>
+          </div>
         </div>
       </div>
       <div className="mt-3 flex w-full flex-col items-center justify-center">

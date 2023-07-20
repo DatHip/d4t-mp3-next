@@ -7,6 +7,37 @@
   .image_hover {
     @apply h-auto w-full transition-transform duration-700 group-hover:scale-110
   }
+
+  .bg_text_chart {
+    background: radial-gradient(50% 124.93% at 95.86% -10%,#3efad9 0,hsla(0,0%,100%,0) 100%),linear-gradient(91.56deg,#ff9357 1.54%,#9100ff 98.71%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .zing_chart_item:first-child .zing_chart-top {
+      -webkit-text-stroke: 1.5px #4a90e2 !important;
+  }
+  
+  .zing_chart_item:nth-child(1) .zing-chart-top  {
+      -webkit-text-stroke: 1.5px #50e3c2 !important;
+  }
+  
+  .zing_chart_item:nth-child(2) .zing-chart-top {
+      -webkit-text-stroke: 1.5px #e35050 !important;
+  }
+  
+
+  .zing_chart-top {
+    -webkit-text-stroke: 1.5px var(--text-primary);
+    color: rgba(74,144,226,0);
+    font-family: Roboto,sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 *,

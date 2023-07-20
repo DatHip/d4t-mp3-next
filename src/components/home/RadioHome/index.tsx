@@ -12,7 +12,6 @@ interface IWeekChartHome {
 }
 
 const RadioHome = ({ data }: IWeekChartHome) => {
-  console.log(data);
   return (
     <LazyLoadComponent threshold={30}>
       <div className="mb-4 mt-9 flex items-center justify-between">

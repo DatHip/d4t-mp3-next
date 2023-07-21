@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -15,6 +16,8 @@ import "swiper/css";
 import { Navigation, Autoplay, Pagination, Lazy } from "swiper";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import WrapperImage from "@/components/common/WrapperImage";
+import Image from "next/image";
 
 const SlideStyle = styled.div`
   flex-grow: 1;
@@ -127,93 +130,91 @@ const SlideHome = ({ data }: any) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   return (
-    <LazyLoadComponent threshold={30}>
-      <SlideStyle>
-        <div className="gallery ml-[-15px] mr-[-15px]">
-          <div className="gallery-container slider_list min-h-[160px]">
-            <Swiper
-              height={216}
-              modules={[Navigation, Autoplay, Pagination, Lazy]}
-              autoplay={{
-                delay: 3500,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-              pagination={{
-                dynamicBullets: true,
-              }}
-              navigation={{
-                prevEl: navigationPrevRef.current,
-                nextEl: navigationNextRef.current,
-              }}
-              onBeforeInit={(swiper: any) => {
-                swiper.params.navigation.prevEl = navigationPrevRef.current;
-                swiper.params.navigation.nextEl = navigationNextRef.current;
-              }}
-              speed={600}
-              allowTouchMove={false}
-              scrollbar={{ draggable: false }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                  allowTouchMove: true,
-                  navigation: false,
-                  autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  },
+    <SlideStyle>
+      <div className="gallery ml-[-15px] mr-[-15px]">
+        <div className="gallery-container slider_list min-h-[160px]">
+          <Swiper
+            height={216}
+            modules={[Navigation, Autoplay, Pagination, Lazy]}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            onBeforeInit={(swiper: any) => {
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+            }}
+            speed={600}
+            allowTouchMove={false}
+            scrollbar={{ draggable: false }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                allowTouchMove: true,
+                navigation: false,
+                autoplay: {
+                  delay: 3000,
+                  disableOnInteraction: false,
                 },
-                600: {
-                  slidesPerView: 2,
-                  allowTouchMove: true,
-                },
-                1040: {
-                  slidesPerView: 3,
-                },
-              }}
-            >
-              {data &&
-                data.length > 0 &&
-                data.map((e: any) => {
-                  return (
-                    <SwiperSlide key={e.banner}>
-                      <div className="gallery-item">
-                        <div className="zm-card cursor-pointer">
-                          <div className="zm-card-image">
-                            <LazyLoadImage
-                              height={"auto"}
-                              src={e.banner}
-                              alt=""
-                            />
-                          </div>
+              },
+              600: {
+                slidesPerView: 2,
+                allowTouchMove: true,
+              },
+              1130: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {data &&
+              data.length > 0 &&
+              data.map((e: any) => {
+                return (
+                  <SwiperSlide key={e.banner}>
+                    <div className="gallery-item">
+                      <div className="zm-card cursor-pointer">
+                        <div className="zm-card-image">
+                          <LazyLoadImage
+                            height={"auto"}
+                            src={e.banner}
+                            alt=""
+                          />
                         </div>
                       </div>
-                    </SwiperSlide>
-                  );
-                })}
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
 
-              <>
-                <button
-                  ref={navigationPrevRef}
-                  type="button"
-                  className="slider_list-btn-left slick-prev slick-arrow"
-                >
-                  <ArrowBackIosNewOutlinedIcon></ArrowBackIosNewOutlinedIcon>
-                </button>
+            <>
+              <button
+                ref={navigationPrevRef}
+                type="button"
+                className="slider_list-btn-left slick-prev slick-arrow"
+              >
+                <ArrowBackIosNewOutlinedIcon></ArrowBackIosNewOutlinedIcon>
+              </button>
 
-                <button
-                  ref={navigationNextRef}
-                  type="button"
-                  className="slider_list-btn-right slick-next slick-arrow "
-                >
-                  <ArrowForwardIosOutlinedIcon></ArrowForwardIosOutlinedIcon>
-                </button>
-              </>
-            </Swiper>
-          </div>
+              <button
+                ref={navigationNextRef}
+                type="button"
+                className="slider_list-btn-right slick-next slick-arrow "
+              >
+                <ArrowForwardIosOutlinedIcon></ArrowForwardIosOutlinedIcon>
+              </button>
+            </>
+          </Swiper>
         </div>
-      </SlideStyle>
-    </LazyLoadComponent>
+      </div>
+    </SlideStyle>
   );
 };
 

@@ -3,6 +3,7 @@ export type dataSliderLeftType = {
   to: string
   title: string
   icon: string
+  active?: boolean
 }
 
 export const dataSliderLeft: dataSliderLeftType[] = [

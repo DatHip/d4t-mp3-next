@@ -9,11 +9,11 @@ import ButtonUser from "../Header/ButtonUser/ButtonUser";
 function MainHeader() {
   return (
     <header
-      className={`fixed left-[240px] right-0 top-0 z-[99]  h-[70px] min-w-[660px]  px-[var(--padding-section)] ${
+      className={`fixed left-[70px] right-0 top-0 z-[99] h-[70px]  min-w-[660px] px-[var(--padding-section)]  zm13:left-[240px] ${
         styles.header || ""
       }`}
     >
-      <div className="mx-auto flex h-full items-center justify-between">
+      <div className="mx-auto flex h-full items-center justify-between gap-4">
         <div className="flex w-full items-center justify-start gap-5">
           <NavRoute></NavRoute>
           <Search></Search>

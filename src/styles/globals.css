@@ -18,15 +18,13 @@
   .zing_chart_item:first-child .zing_chart-top {
       -webkit-text-stroke: 1.5px #4a90e2 !important;
   }
-  
-  .zing_chart_item:nth-child(1) .zing-chart-top  {
+  .zing_chart_item:nth-child(2) .zing_chart-top {
       -webkit-text-stroke: 1.5px #50e3c2 !important;
   }
   
-  .zing_chart_item:nth-child(2) .zing-chart-top {
+  .zing_chart_item:nth-child(3) .zing_chart-top {
       -webkit-text-stroke: 1.5px #e35050 !important;
   }
-  
 
   .zing_chart-top {
     -webkit-text-stroke: 1.5px var(--text-primary);
@@ -55,6 +53,10 @@ body {
   color: var(--text-primary);
 }
 
+body {
+  min-height: 100vh;
+}
+
 img {
     height: auto;
     max-width: 100%;
@@ -63,7 +65,7 @@ img {
 
 .main {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100vh;
   background-color: var(--layout-bg);
   background-repeat: no-repeat;
@@ -74,21 +76,23 @@ img {
 }
 
 .icon {
-    border-radius: 4px;
-    display: inline-block;
-    flex-shrink: 0;
-    font-size: 24px;
-    height: 24px;
-    line-height: 66%;
-    width: 24px;
-    position: relative;
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
+  font-size: 24px;
+  height: 24px;
+  line-height: 66%;
+  width: 24px;
+  position: relative;
 }
+
 .icon::before {
   position: absolute;
   top: 50%;
   left: 50%;
-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
+
 .box-shadow-queue {
   box-shadow: var(--box-shadow-queue);
 }

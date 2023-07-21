@@ -131,7 +131,7 @@ const SlideHome = ({ data }: any) => {
   const navigationNextRef = React.useRef(null);
   return (
     <SlideStyle>
-      <div className="gallery ml-[-15px] mr-[-15px]">
+      <div className="gallery">
         <div className="gallery-container slider_list min-h-[160px]">
           <Swiper
             height={216}
@@ -141,6 +141,7 @@ const SlideHome = ({ data }: any) => {
               disableOnInteraction: false,
             }}
             loop={true}
+            loopFillGroupWithBlank={true}
             pagination={{
               dynamicBullets: true,
             }}
@@ -165,11 +166,11 @@ const SlideHome = ({ data }: any) => {
                   disableOnInteraction: false,
                 },
               },
-              600: {
+              768: {
                 slidesPerView: 2,
                 allowTouchMove: true,
               },
-              1130: {
+              1040: {
                 slidesPerView: 3,
               },
             }}

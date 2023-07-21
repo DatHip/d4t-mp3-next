@@ -11,8 +11,8 @@ function SliderLeft() {
   return (
     <div
       className={clsx(
-        "fixed z-[100] h-[calc(100vh-90px)] max-w-[70px] bg-[var(--sidebar-bg)] transition-all zm13:min-w-[240px] zm13:max-w-none",
-        opend && "min-w-[240px] max-w-none"
+        "fixed z-[100] h-[calc(100vh-90px)] w-[70px] bg-[var(--sidebar-popup-bg)] transition-all duration-700 zm13:min-w-[240px] zm13:max-w-none zm13:bg-[var(--sidebar-bg)]",
+        opend && "min-w-[240px]"
       )}
     >
       <aside className="flex h-full flex-col">

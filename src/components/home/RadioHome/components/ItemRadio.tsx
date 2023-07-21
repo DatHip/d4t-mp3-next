@@ -11,7 +11,7 @@ interface IItemRadioProps {
 
 const ItemRadio = ({ data }: IItemRadioProps) => {
   return (
-    <div className="col l-2 c-5 m-f-2">
+    <div className="col l-2 c-3 m-f-3">
       <div className="relative">
         <div className="overflow-hidden rounded-full border-[4px] border-[#FF4B4A]">
           <BoxHover childrenHover={<></>}>

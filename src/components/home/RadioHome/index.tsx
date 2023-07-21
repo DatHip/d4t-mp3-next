@@ -18,7 +18,7 @@ const RadioHome = ({ data }: IWeekChartHome) => {
         <TitleList className="!my-0">{data?.title}</TitleList>
         {data?.link && <LinkToAll href={data?.link}></LinkToAll>}
       </div>
-      <div className="row flex-nowrap overflow-hidden">
+      <div className="row flex-nowrap overflow-x-auto">
         {data?.items?.slice(0, 6).map((e: any) => {
           return <ItemRadio data={e} key={e?.id}></ItemRadio>;
         })}

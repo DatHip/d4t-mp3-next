@@ -12,7 +12,7 @@ interface IWeekChartHome {
 const WeekChartHome: React.FC<IWeekChartHome> = ({ data }) => {
   return (
     <LazyLoadComponent threshold={30}>
-      <div className="row mt-9 overflow-x-auto">
+      <div className="row mt-9 flex-nowrap overflow-x-auto">
         {data?.items.map((e: any) => {
           return (
             <div key={e.link} className="col l-4 m-f-4 c-5">

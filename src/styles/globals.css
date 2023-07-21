@@ -183,3 +183,33 @@ input[type="range"]::-ms-track {
   line-height: 1;
   font-family: "Roboto", sans-serif;
 }
+
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 5px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset #fff;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--scroll-thumb-bg);
+
+}
+.overflow-x-auto::-webkit-scrollbar {
+  height: 7px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset #fff;
+  border-radius: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--scroll-thumb-bg);
+
+}

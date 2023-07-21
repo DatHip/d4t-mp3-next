@@ -20,7 +20,7 @@ const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
         <TitleList className="!my-0">{data?.title}</TitleList>
         {data?.link && <LinkToAll href={data?.link}></LinkToAll>}
       </div>
-      <div className="flex items-start justify-between gap-6">
+      <div className="row flex-nowrap overflow-x-auto pb-[6px]">
         {data?.items.slice(0, 5).map((list: any) => (
           <CardPlaylist
             key={list?.encodeId}

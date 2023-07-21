@@ -5,7 +5,7 @@ import React from "react";
 
 import { memo } from "react";
 import BoxHover from "@/components/common/BoxHover";
-import ListArtists from "./ListArtists";  
+import ListArtists from "./ListArtists";
 import timeLine from "@/utils/timeLine";
 import BoxHoverAction from "@/components/common/BoxHoverAction";
 import IconVip from "@/asset/icons/IconVip";
@@ -35,7 +35,7 @@ const ItemNewRelease: React.FC<IItemNewRelease> = ({ data }) => {
             ></Image>
           </WrapperImage>
         </BoxHover>
-        <div>
+        <div className="flex-1">
           <div className="text-[var(--player-text] flex items-center justify-between gap-2 text-sm">
             <p className="line-clamp-1">{data?.title}</p>
             {data?.streamingStatus === 2 && <IconVip></IconVip>}

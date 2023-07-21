@@ -10,18 +10,18 @@ const ListItemNewRelease = ({ data }: any) => {
   const list3 = data.slice(8, 12);
 
   return (
-    <div className="row mt-5">
-      <div className="col l-4 c-9 m-f-6">
+    <div className="row mt-5 flex-nowrap overflow-x-auto">
+      <div className="col l-4 c-5 m-f-6">
         {list1.map((e: any) => {
           return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;
         })}
       </div>
-      <div className="col l-4 c-9 m-f-6">
+      <div className="col l-4 c-5 m-f-6">
         {list2.map((e: any) => {
           return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;
         })}
       </div>
-      <div className="col l-4 c-0 m-f-6">
+      <div className="col l-4 c-5 m-f-0">
         {list3.map((e: any) => {
           return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;
         })}

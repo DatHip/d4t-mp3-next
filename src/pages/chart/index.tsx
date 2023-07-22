@@ -7,6 +7,7 @@ import { tmdAPI } from "@/utils/apiRouter";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { apiGet } from "@/utils/https/request";
 import ChartHomeRight from "@/components/home/ChartHome/ChartHomeRight";
+import { TitleChart } from "@/components/home/ChartHome/components/HeaderChartHome";
 
 export const metadata: Metadata = {
   title: "Bảng xếp hạng - D4T MP3",
@@ -18,9 +19,7 @@ const Chart: NextPage = (props: any) => {
     initialData: props.data,
     staleTime: 300000,
   });
-
-  console.log(data);
-
+  console.log(data?.data);
   return (
     <>
       <Head>
@@ -28,7 +27,10 @@ const Chart: NextPage = (props: any) => {
       </Head>
       <main>
         <div>
-          <ChartHomeRight data={data?.RTChart}></ChartHomeRight>
+          <div className="mb-4 text-2xl font-bold ">
+            <TitleChart></TitleChart>
+          </div>
+          <ChartHomeRight data={data?.data?.RTChart}></ChartHomeRight>
         </div>
       </main>
     </>

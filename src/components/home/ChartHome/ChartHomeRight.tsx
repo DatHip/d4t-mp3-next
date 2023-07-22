@@ -15,8 +15,6 @@ interface IChartHomeRight {
 }
 
 const ChartHomeRight = ({ data }: IChartHomeRight) => {
-  console.log(data);
-
   const [options, setOptions] = useState({});
   const categories = data?.chart?.times.map((e: any, i: number) => {
     if (i % 2 !== 0) return e.hour + ":00";

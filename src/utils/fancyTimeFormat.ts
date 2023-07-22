@@ -1,4 +1,4 @@
-const fancyTimeFormat = (duration : any, par : boolean) => {
+const fancyTimeFormat = (duration : any, par?: boolean) => {
     const hrs = Math.floor(duration / 3600);
     const mins = Math.floor((duration % 3600) / 60);
     const secs = duration % 60;

@@ -4,17 +4,23 @@ import React, { memo } from "react";
 import BoxHover from "./BoxHover";
 import Image from "next/image";
 import ListArtists from "./ListArtists";
+import { clsx } from "@mantine/core";
+import IconVip from "@/asset/icons/IconVip";
 
 interface InfoSongCurrentProps {
   data: any;
+  className?: string;
 }
 
-const InfoSongCurrent = ({ data }: InfoSongCurrentProps) => {
+const InfoSongCurrent = ({ data, className }: InfoSongCurrentProps) => {
   return (
-    <div className=" flex items-center justify-start gap-2">
+    <div className=" flex items-center justify-start gap-3">
       <BoxHover
         childrenHover={<></>}
-        className="h-16 w-16 cursor-pointer rounded-lg  shadow-lg"
+        className={clsx(
+          className,
+          "h-16 w-16 cursor-pointer rounded-lg shadow-lg"
+        )}
       >
         <Image
           width={64}
@@ -25,7 +31,10 @@ const InfoSongCurrent = ({ data }: InfoSongCurrentProps) => {
         ></Image>
       </BoxHover>
       <div>
-        <div className="line-clamp-1 text-sm font-medium ">{data?.title}</div>
+        <div className="line-clamp-1">
+          <div className="line-clamp-1 text-sm font-medium">{data?.title}</div>
+          {data?.streamingStatus === 2 && <IconVip></IconVip>}
+        </div>
         <ListArtists className="mt-1 " data={data?.artists}></ListArtists>
       </div>
     </div>

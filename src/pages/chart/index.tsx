@@ -8,6 +8,7 @@ import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { apiGet } from "@/utils/https/request";
 import ChartHomeRight from "@/components/home/ChartHome/ChartHomeRight";
 import { TitleChart } from "@/components/home/ChartHome/components/HeaderChartHome";
+import ListTop100Charts from "./components/ListTop100Charts";
 
 export const metadata: Metadata = {
   title: "Bảng xếp hạng - D4T MP3",
@@ -19,7 +20,6 @@ const Chart: NextPage = (props: any) => {
     initialData: props.data,
     staleTime: 300000,
   });
-  console.log(data?.data);
   return (
     <>
       <Head>
@@ -31,6 +31,9 @@ const Chart: NextPage = (props: any) => {
             <TitleChart></TitleChart>
           </div>
           <ChartHomeRight data={data?.data?.RTChart}></ChartHomeRight>
+          <ListTop100Charts
+            data={data?.data?.RTChart?.items}
+          ></ListTop100Charts>
         </div>
       </main>
     </>

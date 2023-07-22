@@ -36,7 +36,7 @@ const ListArtists: React.FC<IListArtists> = ({ data, className }) => {
 
   return (
     <div
-      className={`line-clamp-1 cursor-pointer text-sm text-[var(--text-secondary)] ${className}`}
+      className={`line-clamp-1 cursor-pointer text-xs text-[var(--text-secondary)] ${className}`}
     >
       {renderedList.reduce((prev: any, curr: any) => [prev, ", ", curr])}
     </div>

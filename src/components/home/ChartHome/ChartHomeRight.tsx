@@ -15,7 +15,19 @@ interface IChartHomeRight {
 }
 
 const ChartHomeRight = ({ data }: IChartHomeRight) => {
-  const [options, setOptions] = useState({});
+  const [options, setOptions] = useState({
+    credits: {
+      enabled: false,
+    },
+    accessibility: {
+      enabled: false,
+    },
+    chart: {
+      height: 320,
+      type: "spline",
+      backgroundColor: "transparent",
+    },
+  });
   const categories = data?.chart?.times.map((e: any, i: number) => {
     if (i % 2 !== 0) return e.hour + ":00";
     return "";
@@ -168,9 +180,9 @@ const ChartHomeRight = ({ data }: IChartHomeRight) => {
           marker: {
             lineColor: "#2596be",
           },
-          // artists: data.items[0].artistsNames,
-          // img: data.items[0].thumbnail,
-          // name: data.items[0].title,
+          artists: data.items[0].artistsNames,
+          img: data.items[0].thumbnail,
+          name: data.items[0].title,
           showInLegend: false,
           color: "#2596be",
           data: data.chart.items[data.items[0].encodeId].map(
@@ -181,9 +193,9 @@ const ChartHomeRight = ({ data }: IChartHomeRight) => {
           marker: {
             lineColor: "#BB4708",
           },
-          // artists: data.items[1].artistsNames,
-          // img: data.items[1].thumbnail,
-          // name: data.items[1].title,
+          artists: data.items[1].artistsNames,
+          img: data.items[1].thumbnail,
+          name: data.items[1].title,
           color: "#BB4708",
           showInLegend: false,
           data: data.chart.items[data.items[1].encodeId].map(
@@ -194,9 +206,9 @@ const ChartHomeRight = ({ data }: IChartHomeRight) => {
           marker: {
             lineColor: "#06AD4B",
           },
-          // artists: data.items[2].artistsNames,
-          // img: data.items[2].thumbnail,
-          // name: data.items[2].title,
+          artists: data.items[2].artistsNames,
+          img: data.items[2].thumbnail,
+          name: data.items[2].title,
           color: "#06AD4B",
           showInLegend: false,
           data: data.chart.items[data.items[2].encodeId].map(

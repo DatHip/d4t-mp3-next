@@ -7,11 +7,11 @@ export const tmdAPI = {
   getTopChart: tmdbEndpoint + 'homechart',
 
   // Get raidio page
-  getRadioPage: tmdbEndpoint + 'homechart',
+  getRadioPage: tmdbEndpoint + 'radio',
 
   // Get New feed
   getNewFeed: (id: string, page: number) =>
-    `${tmdbEndpoint}/newfeeds?id=${id}&page=${page}`,
+    `${tmdbEndpoint}newfeeds?id=${id}&page=${page}`,
 
   // Get new songs
   getNewSong: tmdbEndpoint + 'newreleasechart',

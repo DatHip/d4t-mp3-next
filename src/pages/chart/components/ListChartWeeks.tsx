@@ -4,7 +4,6 @@ import React from "react";
 import ListChartCol from "./ListChartCol";
 
 const ListChartWeeks = ({ data }: { data: any }) => {
-  console.log(data);
   return (
     <div className="mt-10">
       <div className="mb-6 text-4xl font-extrabold text-[var(--text-item-hover)]">

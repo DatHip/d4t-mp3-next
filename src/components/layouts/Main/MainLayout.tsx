@@ -22,7 +22,7 @@ export default function MainLayout({ children }: Props) {
       <SliderLeft></SliderLeft>
       <MainHeader></MainHeader>
       <div className="mb-[120px] ml-[70px] mt-[70px] h-full w-full overflow-x-auto zm13:ml-[240px]">
-        <div className="mx-auto mt-8 max-w-[1280px] px-4 md:px-[var(--padding-section)]">
+        <div className="mx-auto mt-8 max-w-[1280px] overflow-y-hidden px-4 md:px-[var(--padding-section)]">
           {children}
         </div>
       </div>

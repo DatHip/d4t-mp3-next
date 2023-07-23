@@ -10,7 +10,7 @@ const ListItemNewRelease = ({ data }: any) => {
   const list3 = data.slice(8, 12);
 
   return (
-    <div className="row mt-5 flex-nowrap overflow-x-auto">
+    <div className="row overflow-x mt-5 flex-nowrap">
       <div className="col l-4 c-5 m-f-6">
         {list1.map((e: any) => {
           return <ItemNewRelease data={e} key={e?.encodeId}></ItemNewRelease>;

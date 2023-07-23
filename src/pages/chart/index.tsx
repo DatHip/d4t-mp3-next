@@ -9,6 +9,7 @@ import { apiGet } from "@/utils/https/request";
 import ChartHomeRight from "@/components/home/ChartHome/ChartHomeRight";
 import { TitleChart } from "@/components/home/ChartHome/components/HeaderChartHome";
 import ListTop100Charts from "./components/ListTop100Charts";
+import ListChartWeeks from "./components/ListChartWeeks";
 
 export const metadata: Metadata = {
   title: "Bảng xếp hạng - D4T MP3",
@@ -20,22 +21,19 @@ const Chart: NextPage = (props: any) => {
     initialData: props.data,
     staleTime: 300000,
   });
+
   return (
     <>
       <Head>
         <title>Bảng xếp hạng | D4T MP3</title>
       </Head>
-      <main>
-        <div>
-          <div className="mb-4 text-2xl font-bold ">
-            <TitleChart></TitleChart>
-          </div>
-          <ChartHomeRight data={data?.data?.RTChart}></ChartHomeRight>
-          <ListTop100Charts
-            data={data?.data?.RTChart?.items}
-          ></ListTop100Charts>
-        </div>
-      </main>
+
+      <div className="mb-4 text-2xl font-bold ">
+        <TitleChart></TitleChart>
+      </div>
+      <ChartHomeRight data={data?.data?.RTChart}></ChartHomeRight>
+      <ListTop100Charts data={data?.data?.RTChart?.items}></ListTop100Charts>
+      <ListChartWeeks data={data?.data?.weekChart}></ListChartWeeks>
     </>
   );
 };

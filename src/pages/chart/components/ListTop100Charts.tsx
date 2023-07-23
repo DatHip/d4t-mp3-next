@@ -9,7 +9,6 @@ interface IListTop100Charts {
 }
 
 const ListTop100Charts = ({ data }: IListTop100Charts) => {
-  console.log(data);
   const [active100, setActive100] = useState(10);
 
   // const Row = ({ index, style }: any) => {

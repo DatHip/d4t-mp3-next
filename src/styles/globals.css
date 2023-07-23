@@ -199,16 +199,21 @@ input[type="range"]::-ms-track {
   background-color: var(--scroll-thumb-bg);
 
 }
-.overflow-x-auto::-webkit-scrollbar {
+
+.overflow-x {
+  overflow-x: auto;
+}
+
+.overflow-x::-webkit-scrollbar {
   height: 7px;
 }
 
-.overflow-x-auto::-webkit-scrollbar-track {
+.overflow-x::-webkit-scrollbar-track {
   -webkit-box-shadow: inset #fff;
   border-radius: 4px;
 }
 
-.overflow-x-auto::-webkit-scrollbar-thumb {
+.overflow-x::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: var(--scroll-thumb-bg);
 

@@ -14,7 +14,7 @@ interface InfoSongCurrentProps {
 
 const InfoSongCurrent = ({ data, className }: InfoSongCurrentProps) => {
   return (
-    <div className=" flex items-center justify-start gap-3">
+    <div className="flex items-center justify-start gap-3">
       <BoxHover
         childrenHover={<></>}
         className={clsx(
@@ -30,8 +30,8 @@ const InfoSongCurrent = ({ data, className }: InfoSongCurrentProps) => {
           className="image_hover"
         ></Image>
       </BoxHover>
-      <div>
-        <div className="line-clamp-1">
+      <div className="flex-1">
+        <div className="line-clamp-1 flex items-center gap-1">
           <div className="line-clamp-1 text-sm font-medium">{data?.title}</div>
           {data?.streamingStatus === 2 && <IconVip></IconVip>}
         </div>

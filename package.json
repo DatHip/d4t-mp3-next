@@ -27,6 +27,7 @@
     "@tanstack/react-query-devtools": "^4.29.19",
     "@tippyjs/react": "^4.2.6",
     "@types/highcharts": "^7.0.0",
+    "@vercel/analytics": "^1.0.1",
     "axios": "^1.4.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "dayjs": "^1.11.9",

@@ -18,7 +18,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-
+import { Analytics } from "@vercel/analytics/react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
 
@@ -38,6 +38,7 @@ const MyApp: AppType<{
             <Hydrate state={pageProps?.dehydratedState}>
               <MainLayout>
                 <Component {...pageProps} />
+                <Analytics />
               </MainLayout>
             </Hydrate>
             <ReactQueryDevtools></ReactQueryDevtools>

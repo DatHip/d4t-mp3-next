@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
@@ -6,7 +7,11 @@ import { clsx } from "@mantine/core";
 
 const NavSliderItem = ({ icon, title, to }: dataSliderLeftType) => {
   const { asPath } = useRouter();
-  const isActive = asPath === to;
+  let isActive = asPath.includes(to);
+
+  if (to === "/") {
+    isActive = asPath === to;
+  }
 
   return (
     <Link

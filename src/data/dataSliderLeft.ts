@@ -27,7 +27,7 @@ export const dataSliderLeft: dataSliderLeftType[] = [
   },
   {
     id: 4,
-    to: '/newfeed',
+    to: '/newfeed/IWZ9Z08I',
     title: 'Theo Dõi',
     icon: 'ic-24-FeedTab'
   },

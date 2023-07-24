@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from "react";
-import Masonry from "@mui/lab/Masonry";
+import Masonry from "react-responsive-masonry";
 import { useViewportSize } from "@mantine/hooks";
 import NewFeedItem from "./NewFeedItem";
 
@@ -24,7 +24,7 @@ const ListItemNewFeed = ({ data }: IListItemNewFeed) => {
   return (
     <div className="relative">
       {data && (
-        <Masonry columns={col}>
+        <Masonry gutter="14px" columnsCount={col}>
           {data?.map((e: any, index: number) => (
             <NewFeedItem data={e} key={index}></NewFeedItem>
           ))}

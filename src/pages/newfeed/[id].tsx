@@ -2,16 +2,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
+import Head from "next/head";
+import ListItemNewFeed from "./components/ListItemNewFeed";
 import React from "react";
-import { type GetServerSideProps, type Metadata, type NextPage } from "next";
+import { apiGet } from "@/utils/https/request";
 import { tmdAPI } from "@/utils/apiRouter";
+import { type Metadata, type NextPage } from "next";
 import {
   QueryClient,
   dehydrate,
   useInfiniteQuery,
 } from "@tanstack/react-query";
-import { apiGet } from "@/utils/https/request";
-import ListItemNewFeed from "./components/ListItemNewFeed";
 
 export const metadata: Metadata = {
   title: "Theo dõi - D4T MP3",
@@ -30,7 +31,15 @@ const NewFeedPages: NextPage = (props: any) => {
       refetchInterval: 300000,
     }
   );
-  return <ListItemNewFeed data={data.pages[0].data.items}></ListItemNewFeed>;
+
+  return (
+    <>
+      <Head>
+        <title>Bản Tin | D4T MP3</title>
+      </Head>
+      <ListItemNewFeed data={data.pages[0].data.items}></ListItemNewFeed>
+    </>
+  );
 };
 
 export const getServerSideProps = async (ctx: any) => {
@@ -39,7 +48,6 @@ export const getServerSideProps = async (ctx: any) => {
   await queryClient.prefetchQuery(["newFeedPage", id], () =>
     apiGet(tmdAPI.getNewFeed(id, 1))
   );
-
   return {
     props: {
       id: id,

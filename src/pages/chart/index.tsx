@@ -27,7 +27,6 @@ const Chart: NextPage = (props: any) => {
       <Head>
         <title>Bảng xếp hạng | D4T MP3</title>
       </Head>
-
       <div className="mb-4 text-2xl font-bold ">
         <TitleChart></TitleChart>
       </div>

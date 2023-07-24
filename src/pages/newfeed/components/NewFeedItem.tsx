@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -51,12 +52,32 @@ const NewFeedItem = ({ data }: INewFeedItem) => {
   }, [data]);
 
   return (
-    <div className="rounded-lg bg-[var(--box-item-bg)] p-5 shadow-lg">
+    <div className="h-min rounded-lg bg-[var(--box-item-bg)] p-5 shadow-lg">
       <ItemHeader data={data}></ItemHeader>
-      <div className="mb-4">
-        <WrapperImage>
-          <Image fill alt={data?.title} src={imgUrl || ""}></Image>
-        </WrapperImage>
+      <div className="relative cursor-pointer">
+        {data?.content?.type === "feedVideo" && (
+          <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center">
+            <i className="icon action-play ic-play cursor-pointer"></i>
+          </div>
+        )}
+        <Image
+          loading="lazy"
+          className="relative h-auto rounded-lg object-cover"
+          width={500}
+          height={500}
+          alt={data?.title}
+          src={imgUrl || ""}
+        ></Image>
+      </div>
+      <div className="mt-4 flex items-center justify-start gap-4">
+        <button type="button" className="flex items-center justify-start gap-1">
+          <i className={`icon ic-like !text-lg`} />
+          <span>{0}</span>
+        </button>
+        <button type="button" className="flex items-center justify-start gap-1">
+          <i className="icon ic-comment !text-lg" />
+          <span>{data?.commend}</span>
+        </button>
       </div>
     </div>
   );

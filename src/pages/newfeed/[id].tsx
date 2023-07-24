@@ -13,6 +13,7 @@ import {
   dehydrate,
   useInfiniteQuery,
 } from "@tanstack/react-query";
+import { useDisclosure } from "@mantine/hooks";
 
 export const metadata: Metadata = {
   title: "Theo dõi - D4T MP3",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 };
 
 const NewFeedPages: NextPage = (props: any) => {
+  const [opend, { close, open }] = useDisclosure(false);
   const { data } = useInfiniteQuery(
     ["newFeedPage", props.id],
     () => apiGet(tmdAPI.getNewFeed(props.id, 1)),

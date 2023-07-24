@@ -10,9 +10,10 @@ import React, { memo } from "react";
 
 interface INewFeedItem {
   data: any;
+  setDataModal?: (value: any) => void;
 }
 
-const ItemHeader = ({ data }: { data: any }) => {
+const ItemHeader = ({ data }: INewFeedItem) => {
   return (
     <div className="mb-2">
       <div className="flex items-center">
@@ -37,7 +38,7 @@ const ItemHeader = ({ data }: { data: any }) => {
   );
 };
 
-const NewFeedItem = ({ data }: INewFeedItem) => {
+const NewFeedItem = ({ data, setDataModal }: INewFeedItem) => {
   const imgUrl = React.useMemo(() => {
     let img;
     if (data?.content.type === "album") {
@@ -54,7 +55,10 @@ const NewFeedItem = ({ data }: INewFeedItem) => {
   return (
     <div className="h-min rounded-lg bg-[var(--box-item-bg)] p-5 shadow-lg">
       <ItemHeader data={data}></ItemHeader>
-      <div className="relative cursor-pointer">
+      <div
+        onClick={() => setDataModal(data)}
+        className="relative cursor-pointer"
+      >
         {data?.content?.type === "feedVideo" && (
           <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center">
             <i className="icon action-play ic-play cursor-pointer"></i>

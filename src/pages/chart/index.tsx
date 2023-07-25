@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const Chart: NextPage = (props: any) => {
   const { data } = useQuery(["chartPage"], () => apiGet(tmdAPI.getTopChart), {
     initialData: props.data,
-    staleTime: 300000,
+    refetchInterval: 300000,
   });
 
   return (

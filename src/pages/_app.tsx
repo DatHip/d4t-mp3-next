@@ -34,7 +34,7 @@ const MyApp: AppType<{
       <SessionProvider session={session}>
         <MantineProvider>
           <ChangeTheme></ChangeTheme>
-          <QueryClientProvider client={queryClient2}>
+          <QueryClientProvider client={queryClient}>
             <Hydrate state={pageProps?.dehydratedState}>
               <MainLayout>
                 <Component {...pageProps} />

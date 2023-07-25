@@ -53,7 +53,7 @@ const NewFeedItem = ({ data, setDataModal }: INewFeedItem) => {
   }, [data]);
 
   return (
-    <div className="h-min rounded-lg bg-[var(--box-item-bg)] p-5 shadow-lg">
+    <div className="mb-4 h-min rounded-lg bg-[var(--box-item-bg)] p-5 shadow-lg">
       <ItemHeader data={data}></ItemHeader>
       <div
         onClick={() => setDataModal(data)}

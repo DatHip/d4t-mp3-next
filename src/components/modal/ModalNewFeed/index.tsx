@@ -22,8 +22,6 @@ const ModalNewFeed = ({
   dataModal,
   setDataModal,
 }: IModalNewFeed) => {
-  console.log(dataModal);
-
   const [llike, setLike] = useState(false);
   const [care, setCare] = useState(false);
 

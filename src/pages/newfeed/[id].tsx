@@ -1,10 +1,14 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import Head from "next/head";
 import ListItemNewFeed from "./components/ListItemNewFeed";
-import React from "react";
+import React, { useState } from "react";
 import { apiGet } from "@/utils/https/request";
 import { tmdAPI } from "@/utils/apiRouter";
 import { type Metadata, type NextPage } from "next";
@@ -13,7 +17,6 @@ import {
   dehydrate,
   useInfiniteQuery,
 } from "@tanstack/react-query";
-import { useDisclosure } from "@mantine/hooks";
 
 export const metadata: Metadata = {
   title: "Theo dõi - D4T MP3",
@@ -21,11 +24,15 @@ export const metadata: Metadata = {
 };
 
 const NewFeedPages: NextPage = (props: any) => {
-  const [opend, { close, open }] = useDisclosure(false);
-  const { data } = useInfiniteQuery(
+  const [currentPage, setCurrentPage] = useState(1);
+  let hasNext: any;
+  const query = useInfiniteQuery(
     ["newFeedPage", props.id],
-    () => apiGet(tmdAPI.getNewFeed(props.id, 1)),
+    ({ pageParam = 1 }) => {
+      return apiGet(tmdAPI.getNewFeed(props.id, pageParam));
+    },
     {
+      getNextPageParam: () => currentPage + 1,
       initialData: {
         pages: [props.data],
         pageParams: [1],
@@ -34,12 +41,20 @@ const NewFeedPages: NextPage = (props: any) => {
     }
   );
 
+  // eslint-disable-next-line prefer-const
+  hasNext = query.hasNextPage;
+
   return (
     <>
       <Head>
         <title>Bản Tin | D4T MP3</title>
       </Head>
-      <ListItemNewFeed data={data.pages[0].data.items}></ListItemNewFeed>
+      <ListItemNewFeed
+        // data={data.pages[0].data.items}
+        query={query}
+        data={query.data}
+        setCurrentPage={setCurrentPage}
+      ></ListItemNewFeed>
     </>
   );
 };
@@ -50,10 +65,11 @@ export const getServerSideProps = async (ctx: any) => {
   await queryClient.prefetchQuery(["newFeedPage", id], () =>
     apiGet(tmdAPI.getNewFeed(id, 1))
   );
+
   return {
     props: {
       id: id,
-      data: dehydrate(queryClient).queries[0].state,
+      data: dehydrate(queryClient).queries[0].state.data,
     },
   };
 };

@@ -17,6 +17,7 @@ import {
   dehydrate,
   useInfiniteQuery,
 } from "@tanstack/react-query";
+import LayoutNewFeed from "./components/LayoutNewFeed";
 
 export const metadata: Metadata = {
   title: "Theo dõi - D4T MP3",
@@ -49,12 +50,13 @@ const NewFeedPages: NextPage = (props: any) => {
       <Head>
         <title>Bản Tin | D4T MP3</title>
       </Head>
-      <ListItemNewFeed
-        // data={data.pages[0].data.items}
-        query={query}
-        data={query.data}
-        setCurrentPage={setCurrentPage}
-      ></ListItemNewFeed>
+      <LayoutNewFeed>
+        <ListItemNewFeed
+          query={query}
+          data={query.data}
+          setCurrentPage={setCurrentPage}
+        ></ListItemNewFeed>
+      </LayoutNewFeed>
     </>
   );
 };

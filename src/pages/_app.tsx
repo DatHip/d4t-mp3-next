@@ -28,7 +28,6 @@ const MyApp: AppType<{
   session: Session | null | any;
   dehydratedState: any;
 }> = ({ Component, pageProps: { session, ...pageProps } }) => {
-  const [queryClient2] = useState(queryClient);
   return (
     <ReduxStore>
       <SessionProvider session={session}>

@@ -50,7 +50,7 @@ const NewFeedPages: NextPage = (props: any) => {
       <Head>
         <title>Bản Tin | D4T MP3</title>
       </Head>
-      <LayoutNewFeed>
+      <LayoutNewFeed id={props.id} setCurrentPage={setCurrentPage}>
         <ListItemNewFeed
           query={query}
           data={query.data}

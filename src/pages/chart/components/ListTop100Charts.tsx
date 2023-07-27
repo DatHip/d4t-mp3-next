@@ -6,34 +6,13 @@ import { FixedSizeList as List } from "react-window";
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 interface IListTop100Charts {
   data: any[];
+  activeLength?: number;
 }
 
-const ListTop100Charts = ({ data }: IListTop100Charts) => {
-  const [active100, setActive100] = useState(10);
-
-  // const Row = ({ index, style }: any) => {
-  //   const e = data[index];
-  //   return <ItemSongPage data={e} key={e?.encodeId} charts style={style} />;
-  // };
-
+const ListTop100Charts = ({ data, activeLength = 10 }: IListTop100Charts) => {
+  const [active100, setActive100] = useState(activeLength);
   return (
     <div className="">
-      {/* <AutoSizer style={{ flex: "1 1 auto" }}>
-        {({ height, width }: any) => {
-          return (
-            <List
-              className="h-full overflow-y-auto"
-              height={height}
-              itemCount={active100}
-              itemSize={56}
-              width={width}
-            >
-              {Row}
-            </List>
-          );
-        }}
-      </AutoSizer> */}
-
       {data.slice(0, active100).map((e: any, index: number) => {
         return <ItemSongPage index={index} data={e} key={e?.encodeId} charts />;
       })}

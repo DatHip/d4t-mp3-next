@@ -20,8 +20,7 @@ import {
 } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useState } from "react";
-
+import NextNProgress from "nextjs-progressbar";
 export const queryClient = new QueryClient();
 
 const MyApp: AppType<{
@@ -35,6 +34,13 @@ const MyApp: AppType<{
           <ChangeTheme></ChangeTheme>
           <QueryClientProvider client={queryClient}>
             <Hydrate state={pageProps?.dehydratedState}>
+              <NextNProgress
+                color="#29D"
+                startPosition={0.3}
+                stopDelayMs={200}
+                height={3}
+                showOnShallow={true}
+              />
               <MainLayout>
                 <Component {...pageProps} />
                 <Analytics />

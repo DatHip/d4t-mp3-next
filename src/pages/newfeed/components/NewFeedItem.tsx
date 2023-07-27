@@ -20,6 +20,7 @@ const ItemHeader = ({ data }: INewFeedItem) => {
         <div className="mr-2">
           <WrapperImage classNameWrapper="h-12 w-12 !overflow-hidden !rounded-full">
             <Image
+              loading="lazy"
               fill
               alt={data?.publisher.name}
               src={data?.publisher.thumbnail}

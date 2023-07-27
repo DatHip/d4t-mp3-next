@@ -23,6 +23,7 @@ const InfoSongCurrent = ({ data, className }: InfoSongCurrentProps) => {
         )}
       >
         <Image
+          loading="lazy"
           width={64}
           height={64}
           alt={data?.title}

@@ -233,3 +233,7 @@ input[type="range"]::-ms-track {
   top: 0;
   left: 0;
 }
+
+.bg-linear {
+  background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.5) 85%);
+}

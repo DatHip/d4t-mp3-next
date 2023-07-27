@@ -18,6 +18,7 @@ function SliderLeft() {
       <aside className="flex h-full flex-col">
         <div className="ml-6 mt-4 h-[54px] max-w-[120px]">
           <Image
+            loading="lazy"
             className={clsx(
               opend && "!visible",
               "invisible object-cover zm13:visible"

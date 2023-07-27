@@ -20,15 +20,32 @@ const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
         <TitleList className="!my-0">{data?.title}</TitleList>
         {data?.link && <LinkToAll href={data?.link}></LinkToAll>}
       </div>
-      <div className="row overflow-x flex-nowrap pb-[6px]">
-        {data?.items.slice(0, 5).map((list: any) => (
-          <CardPlaylist
-            key={list?.encodeId}
-            hideTitle={data?.options?.hideTitle}
-            data={list}
-          ></CardPlaylist>
-        ))}
-      </div>
+      {data?.items?.length > 0 && (
+        <>
+          <div className="row overflow-x flex-nowrap pb-[6px]">
+            {data?.items.slice(0, 5).map((list: any) => (
+              <CardPlaylist
+                key={list?.encodeId}
+                hideTitle={data?.options?.hideTitle}
+                data={list}
+              ></CardPlaylist>
+            ))}
+          </div>
+        </>
+      )}
+      {data?.playlists?.length > 0 && (
+        <>
+          <div className="row overflow-x flex-nowrap pb-[6px]">
+            {data?.playlists.slice(0, 5).map((list: any) => (
+              <CardPlaylist
+                key={list?.encodeId}
+                hideTitle={data?.options?.hideTitle}
+                data={list}
+              ></CardPlaylist>
+            ))}
+          </div>
+        </>
+      )}
     </LazyLoadComponent>
   );
 };

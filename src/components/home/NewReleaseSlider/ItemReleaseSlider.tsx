@@ -20,6 +20,7 @@ const ItemReleaseSlider: React.FC<IItemReleaseSlider> = ({ data, index }) => {
         className="max-h-[120px] min-h-[120px] min-w-[120px] max-w-[120px]"
       >
         <Image
+          loading="lazy"
           width={120}
           height={120}
           alt={data?.title}

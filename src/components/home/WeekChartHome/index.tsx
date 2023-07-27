@@ -18,6 +18,7 @@ const WeekChartHome: React.FC<IWeekChartHome> = ({ data }) => {
             <div key={e.link} className="col l-4 m-f-4 c-5">
               <div className="group overflow-hidden rounded-md">
                 <Image
+                  loading="lazy"
                   className="h-full max-w-full transition-transform duration-700 group-hover:scale-110"
                   width={300}
                   height={100}

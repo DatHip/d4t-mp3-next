@@ -18,7 +18,7 @@ const BoxHover: React.FC<BoxHoverProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`group relative overflow-hidden rounded-lg transition-all ${className}`}
+      className={`group relative cursor-pointer overflow-hidden rounded-lg transition-all ${className}`}
     >
       {children}
 

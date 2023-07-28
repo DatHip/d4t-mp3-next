@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -6,19 +9,41 @@ import CardPlaylist from "@/components/common/CardPlaylist";
 import LinkToAll from "@/components/common/LinkToAll";
 import TitleList from "@/components/common/TitleList";
 import Link from "next/link";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 interface IListCarousel {
   data: any;
 }
 
+const getIdFromUrl = (url: string) => {
+  const regex = /\/([A-Za-z0-9]+)\.html$/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+};
+
 const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
+  const getLink = useMemo(() => {
+    if (!data?.link) {
+      return null;
+    }
+
+    if (data?.link === "/moi-phat-hanh") {
+      return "/newmusic";
+    }
+
+    return getIdFromUrl(data?.link)
+      ? "/category/" + getIdFromUrl(data?.link)
+      : data?.link;
+  }, []);
+
+  // console.log(getLink);
+
   return (
     <LazyLoadComponent threshold={30}>
       <div className="mb-3 mt-9 flex items-center justify-between">
         <TitleList className="!my-0">{data?.title}</TitleList>
-        {data?.link && <LinkToAll href={data?.link}></LinkToAll>}
+        {data?.link && <LinkToAll href={getLink}></LinkToAll>}
       </div>
       {data?.items?.length > 0 && (
         <>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -7,16 +8,23 @@ import Image from "next/image";
 import Link from "next/link";
 import ListArtists from "./ListArtists";
 import WrapperImage from "./WrapperImage";
+import { useRouter } from "next/router";
 interface ICardPlaylist {
   data: any;
   hideTitle?: boolean;
 }
 
 const CardPlaylist: React.FC<ICardPlaylist> = ({ data, hideTitle }) => {
+  const { push } = useRouter();
   return (
     <div className="col l-2-4 c-5 m-f-3">
       <div className="flex-1 overflow-hidden">
-        <BoxHover childrenHover={<i className="icon action-play ic-play"></i>}>
+        <BoxHover
+          onClick={() => push(`/album/${data?.encodeId}`)}
+          childrenHover={
+            <i className="icon action-play ic-play cursor-pointer"></i>
+          }
+        >
           <WrapperImage>
             <Image
               loading="lazy"

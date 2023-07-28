@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -9,37 +7,29 @@ import { apiGet } from "@/utils/https/request";
 import { tmdAPI } from "@/utils/apiRouter";
 import { type Metadata, type NextPage } from "next";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
-import ItemHome from "@/components/common/ItemHome";
-import BannerCategory from "./components/BannerCategory";
 
 export const metadata: Metadata = {
-  title: "Thể loại - D4T MP3",
+  title: "Album - D4T MP3",
   description: "D4T MP3 | Nghe nhạc chất lượng cao trên desktop, mobile và TV",
 };
 
-const CategoryDetail: NextPage = (props: any) => {
+const AlbumPage: NextPage = (props: any) => {
   const { data } = useQuery(
-    ["hubPageDetail", props?.id],
-    () => apiGet(tmdAPI.getHubDetail(props?.id)),
+    ["albumPage", props.id],
+    () => apiGet(tmdAPI.getAlbumPage(props.id)),
     {
       initialData: props.data,
       refetchInterval: 300000,
     }
   );
-  // getSuggestedAlbum
-
   console.log(data);
 
   return (
     <>
       <Head>
-        <title>Thể loại | D4T MP3</title>
+        <title>Bản Tin | D4T MP3</title>
       </Head>
-      <BannerCategory src={data?.data?.cover}></BannerCategory>
-      {data?.data?.sections &&
-        data?.data?.sections?.map((e: any, key: number) => {
-          return <ItemHome key={key} data={e}></ItemHome>;
-        })}
+      <div></div>
     </>
   );
 };
@@ -47,8 +37,8 @@ const CategoryDetail: NextPage = (props: any) => {
 export const getServerSideProps = async (ctx: any) => {
   const id = ctx.query.id;
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(["hubPageDetail", id], () =>
-    apiGet(tmdAPI.getHubDetail(id))
+  await queryClient.prefetchQuery(["albumPage", id], () =>
+    apiGet(tmdAPI.getAlbumPage(id))
   );
 
   return {
@@ -59,4 +49,4 @@ export const getServerSideProps = async (ctx: any) => {
   };
 };
 
-export default CategoryDetail;
+export default AlbumPage;

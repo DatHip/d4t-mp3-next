@@ -19,12 +19,12 @@ export const dataSliderLeft: dataSliderLeftType[] = [
     title: 'Top Chart',
     icon: 'ic-24-ChartTab'
   },
-  {
-    id: 3,
-    to: '/radio',
-    title: 'Radio',
-    icon: 'ic-24-RadioTab'
-  },
+  // {
+  //   id: 3,
+  //   to: '/radio',
+  //   title: 'Radio',
+  //   icon: 'ic-24-RadioTab'
+  // },
   {
     id: 4,
     to: '/newfeed/IWZ9Z08I',

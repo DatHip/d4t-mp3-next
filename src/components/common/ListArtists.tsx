@@ -21,13 +21,13 @@ const TitleLinkArtist = ({ data }: { data: any }) => {
   );
 };
 const ListArtists: React.FC<IListArtists> = ({ data, className }) => {
-  const artistNames = data.map((artist, index) => (
+  const artistNames = data?.map((artist, index) => (
     <TitleLinkArtist data={artist} key={index}></TitleLinkArtist>
   ));
 
   let renderedList: any = [];
 
-  if (artistNames.length > 3) {
+  if (artistNames?.length > 3) {
     const slicedNames = artistNames.slice(0, 3);
     renderedList = [...slicedNames, <span key="ellipsis">...</span>];
   } else {
@@ -38,7 +38,7 @@ const ListArtists: React.FC<IListArtists> = ({ data, className }) => {
     <div
       className={`line-clamp-1 cursor-pointer text-xs text-[var(--text-secondary)] ${className}`}
     >
-      {renderedList.reduce((prev: any, curr: any) => [prev, ", ", curr])}
+      {renderedList?.reduce((prev: any, curr: any) => [prev, ", ", curr])}
     </div>
   );
 };

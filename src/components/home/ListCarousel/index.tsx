@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
@@ -11,9 +12,10 @@ import TitleList from "@/components/common/TitleList";
 import Link from "next/link";
 import { memo, useMemo } from "react";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
-
+import clsx from "clsx";
 interface IListCarousel {
   data: any;
+  flexWrap?: boolean;
 }
 
 const getIdFromUrl = (url: string) => {
@@ -22,7 +24,7 @@ const getIdFromUrl = (url: string) => {
   return match ? match[1] : null;
 };
 
-const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
+const ListCarousel: React.FC<IListCarousel> = ({ data, flexWrap }) => {
   const getLink = useMemo(() => {
     if (!data?.link) {
       return null;
@@ -47,27 +49,41 @@ const ListCarousel: React.FC<IListCarousel> = ({ data }) => {
       </div>
       {data?.items?.length > 0 && (
         <>
-          <div className="row overflow-x flex-nowrap pb-[6px]">
-            {data?.items.slice(0, 5).map((list: any) => (
-              <CardPlaylist
-                key={list?.encodeId}
-                hideTitle={data?.options?.hideTitle}
-                data={list}
-              ></CardPlaylist>
-            ))}
+          <div
+            className={clsx(
+              "row overflow-x flex-nowrap gap-y-4 pb-[6px]",
+              flexWrap && "!flex-wrap"
+            )}
+          >
+            {data?.items
+              .slice(0, flexWrap ? data?.items.length + 1 : 5)
+              .map((list: any) => (
+                <CardPlaylist
+                  key={list?.encodeId}
+                  hideTitle={data?.options?.hideTitle}
+                  data={list}
+                ></CardPlaylist>
+              ))}
           </div>
         </>
       )}
       {data?.playlists?.length > 0 && (
         <>
-          <div className="row overflow-x flex-nowrap pb-[6px]">
-            {data?.playlists.slice(0, 5).map((list: any) => (
-              <CardPlaylist
-                key={list?.encodeId}
-                hideTitle={data?.options?.hideTitle}
-                data={list}
-              ></CardPlaylist>
-            ))}
+          <div
+            className={clsx(
+              "row overflow-x flex-nowrap gap-y-4 pb-[6px]",
+              flexWrap && "!flex-wrap"
+            )}
+          >
+            {data?.playlists
+              .slice(0, flexWrap ? data?.items.length + 1 : 5)
+              .map((list: any) => (
+                <CardPlaylist
+                  key={list?.encodeId}
+                  hideTitle={data?.options?.hideTitle}
+                  data={list}
+                ></CardPlaylist>
+              ))}
           </div>
         </>
       )}

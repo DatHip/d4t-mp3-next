@@ -27,7 +27,7 @@ export const tmdAPI = {
 
   // Get List Mv :
   getListMv: (id: string, page: number) =>
-    `${tmdbEndpoint}/listmv?id=${id}&page=${page}&count=19`,
+    `${tmdbEndpoint}listmv?id=${id}&page=${page}&count=15`,
 
   // Category Mv
   getCategoryMV: (id: string) => `${tmdbEndpoint}categorymv/${id}`,

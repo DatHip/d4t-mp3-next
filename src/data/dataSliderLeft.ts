@@ -51,7 +51,7 @@ export const dataSliderLeft: dataSliderLeftType[] = [
   },
   {
     id: 8,
-    to: '/mv',
+    to: '/mv/IWZ9Z08I',
     title: 'MV',
     icon: 'ic-24-MVTab'
   }

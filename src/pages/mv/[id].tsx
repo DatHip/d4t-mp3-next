@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -10,8 +15,12 @@ import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
 import { apiGet } from "@/utils/https/request";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LayoutMvPage from "./components/LayoutMvPage";
+import MvItem from "./components/MvItem";
+import { number } from "zod";
+import { useInView } from "react-intersection-observer";
+import Loading from "@/components/common/LoadingIndicator/Loading";
 
 export const metadata: Metadata = {
   title: "MV - D4T MP3",
@@ -19,6 +28,7 @@ export const metadata: Metadata = {
 };
 
 const MVpage: NextPage = (props: any) => {
+  const { ref, inView } = useInView();
   const [currentPage, setCurrentPage] = useState(1);
   let hasNext: any;
   const query = useInfiniteQuery(
@@ -27,7 +37,13 @@ const MVpage: NextPage = (props: any) => {
       return apiGet(tmdAPI.getListMv(props.id, pageParam));
     },
     {
-      getNextPageParam: () => currentPage + 1,
+      getNextPageParam: (value) => {
+        if (value?.data?.hasMore) {
+          return currentPage + 1;
+        } else {
+          return undefined;
+        }
+      },
       initialData: {
         pages: [props.data],
         pageParams: [1],
@@ -41,13 +57,53 @@ const MVpage: NextPage = (props: any) => {
 
   console.log(query.data);
 
+  useEffect(() => {
+    if (!query.hasNextPage || query.isFetchingNextPage || query.isLoading) {
+      return;
+    }
+    if (inView) {
+      setCurrentPage((value: any) => value + 1);
+      query.fetchNextPage();
+    }
+  }, [inView]);
+
   return (
     <>
       <Head>
         <title>MV | D4T MP3</title>
       </Head>
       <LayoutMvPage id={props.id as string}>
-        <div>Top100</div>
+        <div className="row gap-y-4">
+          {query.data?.pages?.map((page: any, index: number) => (
+            <React.Fragment key={index}>
+              {page?.data?.items?.map((e: { encodeId: any }) => (
+                <MvItem data={e} key={e?.encodeId}></MvItem>
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
+        {query.isFetchingNextPage && (
+          <div className="mt-4 flex items-center justify-center">
+            <Loading></Loading>
+          </div>
+        )}
+        <button
+          ref={ref}
+          onClick={() => {
+            if (
+              !query.hasNextPage ||
+              query.isFetchingNextPage ||
+              query.isLoading
+            ) {
+              return null;
+            }
+
+            return query.fetchNextPage();
+          }}
+          disabled={
+            !query.hasNextPage || query.isFetchingNextPage || query.isLoading
+          }
+        ></button>
       </LayoutMvPage>
     </>
   );

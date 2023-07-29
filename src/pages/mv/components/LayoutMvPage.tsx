@@ -8,7 +8,7 @@ interface LayoutMvPage {
   children: React.ReactNode;
 }
 
-const NavMvPageItem = ({
+export const NavMvPageItem = ({
   active,
   to,
   title,

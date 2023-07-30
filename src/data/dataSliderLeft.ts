@@ -19,12 +19,7 @@ export const dataSliderLeft: dataSliderLeftType[] = [
     title: 'Top Chart',
     icon: 'ic-24-ChartTab'
   },
-  // {
-  //   id: 3,
-  //   to: '/radio',
-  //   title: 'Radio',
-  //   icon: 'ic-24-RadioTab'
-  // },
+
   {
     id: 4,
     to: '/newfeed/IWZ9Z08I',
@@ -54,5 +49,11 @@ export const dataSliderLeft: dataSliderLeftType[] = [
     to: '/mv/IWZ9Z08I',
     title: 'MV',
     icon: 'ic-24-MVTab'
-  }
+  },
+  {
+    id: 3,
+    to: '/history/song',
+    title: 'Gần Đây',
+    icon: 'ic-24-RadioTab'
+  },
 ]

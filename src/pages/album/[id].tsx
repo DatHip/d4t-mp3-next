@@ -7,6 +7,8 @@ import { apiGet } from "@/utils/https/request";
 import { tmdAPI } from "@/utils/apiRouter";
 import { type Metadata, type NextPage } from "next";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
+import AlbumInfo from "./components/AlbumInfo";
+import ListSongAlbum from "./components/ListSongAlbum";
 
 export const metadata: Metadata = {
   title: "Album - D4T MP3",
@@ -22,14 +24,18 @@ const AlbumPage: NextPage = (props: any) => {
       refetchInterval: 300000,
     }
   );
-  console.log(data);
 
   return (
     <>
       <Head>
-        <title>Bản Tin | D4T MP3</title>
+        <title>Album | D4T MP3</title>
       </Head>
-      <div></div>
+      <div>
+        <div className="after:clear-both after:block after:content-['']">
+          <AlbumInfo data={data.data}></AlbumInfo>
+          <ListSongAlbum data={data.data}></ListSongAlbum>
+        </div>
+      </div>
     </>
   );
 };

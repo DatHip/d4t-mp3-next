@@ -18,17 +18,17 @@ const LayoutHistory = ({ children }: LayoutHistoryProps) => {
         <div className="relative ml-1 flex items-center text-sm font-medium">
           <NavMvPageItem
             title="BÀI HÁT"
-            active={asPath === "/mv/song"}
+            active={asPath === "/history/song"}
             to="/history/song"
           ></NavMvPageItem>
           <NavMvPageItem
             title="ALBUM"
-            active={asPath === "/mv/album"}
+            active={asPath === "/history/album"}
             to="/history/album"
           ></NavMvPageItem>
           <NavMvPageItem
             title="MV"
-            active={asPath === "/mv/mv"}
+            active={asPath === "/history/mv"}
             to="/history/mv"
           ></NavMvPageItem>
         </div>

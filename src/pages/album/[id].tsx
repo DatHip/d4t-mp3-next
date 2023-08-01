@@ -27,7 +27,7 @@ const AlbumPage: NextPage = (props: any) => {
       refetchInterval: 300000,
     }
   );
-  const { data: dataMore } = useQuery(
+  const { data: dataMore, isLoading: isLoadingMore } = useQuery(
     ["suggestedAlbum", props.id],
     () => apiGet(tmdAPI.getSuggestedAlbum(props.id)),
     {
@@ -47,7 +47,10 @@ const AlbumPage: NextPage = (props: any) => {
           <ListSongAlbum data={data.data}></ListSongAlbum>
         </div>
         <div ref={ref}></div>
-        <ListSuggestedAlbum data={dataMore}></ListSuggestedAlbum>
+        <ListSuggestedAlbum
+          isLoading={isLoadingMore}
+          data={dataMore}
+        ></ListSuggestedAlbum>
       </div>
     </>
   );

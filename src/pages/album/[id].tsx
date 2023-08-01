@@ -9,6 +9,8 @@ import { type Metadata, type NextPage } from "next";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import AlbumInfo from "./components/AlbumInfo";
 import ListSongAlbum from "./components/ListSongAlbum";
+import { useInView } from "react-intersection-observer";
+import ListSuggestedAlbum from "./components/ListSuggestedAlbum";
 
 export const metadata: Metadata = {
   title: "Album - D4T MP3",
@@ -16,12 +18,21 @@ export const metadata: Metadata = {
 };
 
 const AlbumPage: NextPage = (props: any) => {
+  const { ref, inView } = useInView();
   const { data } = useQuery(
     ["albumPage", props.id],
     () => apiGet(tmdAPI.getAlbumPage(props.id)),
     {
       initialData: props.data,
       refetchInterval: 300000,
+    }
+  );
+  const { data: dataMore } = useQuery(
+    ["suggestedAlbum", props.id],
+    () => apiGet(tmdAPI.getSuggestedAlbum(props.id)),
+    {
+      refetchInterval: 300000,
+      enabled: inView,
     }
   );
 
@@ -35,6 +46,8 @@ const AlbumPage: NextPage = (props: any) => {
           <AlbumInfo data={data.data}></AlbumInfo>
           <ListSongAlbum data={data.data}></ListSongAlbum>
         </div>
+        <div ref={ref}></div>
+        <ListSuggestedAlbum data={dataMore}></ListSuggestedAlbum>
       </div>
     </>
   );

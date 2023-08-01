@@ -10,7 +10,6 @@ interface ListSongAlbumProps {
 }
 
 const ListSongAlbum = ({ data }: ListSongAlbumProps) => {
-  console.log(data);
   return (
     <div className="md:ml-[330px]">
       {data?.sortDescription && (

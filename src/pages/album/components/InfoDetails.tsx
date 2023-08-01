@@ -13,7 +13,7 @@ interface InfoDetailsProps {
 const InfoDetails = ({ data }: InfoDetailsProps) => {
   return (
     <>
-      <h3 className="text-xl font-bold">{data?.title}</h3>
+      <h3 className="text-center text-xl font-bold">{data?.title}</h3>
       <p className="text-xs text-[var(--text-secondary)]">
         Cập nhật: {formatTimeCreateAlbum(data?.contentLastUpdate)}
       </p>

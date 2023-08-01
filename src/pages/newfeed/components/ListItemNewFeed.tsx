@@ -12,7 +12,6 @@ import NewFeedItem from "./NewFeedItem";
 import ModalNewFeed from "@/components/modal/ModalNewFeed";
 import { useInView } from "react-intersection-observer";
 import { type UseInfiniteQueryResult } from "@tanstack/react-query";
-import { LoadingIndicator } from "@/components/common/LoadingIndicator";
 import Loading from "@/components/common/LoadingIndicator/Loading";
 interface IListItemNewFeed {
   data: any;
@@ -25,16 +24,6 @@ const ListItemNewFeed = ({ data, query, setCurrentPage }: IListItemNewFeed) => {
   const { ref, inView } = useInView();
   const [dataModal, setDataModal] = useState<any>({});
   const { width } = useViewportSize();
-
-  const col = React.useMemo(() => {
-    if (width <= 600) {
-      return 1;
-    } else if (width <= 1400) {
-      return 2;
-    } else {
-      return 3;
-    }
-  }, [width]);
 
   const handleSetData = useCallback((value: any) => {
     setDataModal(value);
@@ -53,7 +42,6 @@ const ListItemNewFeed = ({ data, query, setCurrentPage }: IListItemNewFeed) => {
 
   return (
     <div className="relative mx-auto max-w-[500px]">
-      {/* <Masonry className="mt-4" gutter="14px" columnsCount={col}> */}
       {data?.pages?.map((page: any, index: number) => (
         <React.Fragment key={index}>
           {page?.data?.items?.map((e: any, index: number) => (
@@ -65,7 +53,6 @@ const ListItemNewFeed = ({ data, query, setCurrentPage }: IListItemNewFeed) => {
           ))}
         </React.Fragment>
       ))}
-      {/* </Masonry> */}
       {query.isFetchingNextPage && (
         <div className="mt-4 flex items-center justify-center">
           <Loading></Loading>

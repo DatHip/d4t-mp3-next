@@ -12,7 +12,6 @@ interface AlbumInfoProps {
 }
 
 const AlbumInfo = ({ data }: AlbumInfoProps) => {
-  console.log(data);
   return (
     <div className="top-3 float-left w-[300px] p-3 md:sticky md:block">
       <BoxHover childrenHover={<></>}>

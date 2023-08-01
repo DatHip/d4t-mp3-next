@@ -21,6 +21,7 @@ interface ItemSongPageProps {
   hideAlbum?: boolean;
   className?: string;
   classNameChart?: string;
+  classNameAlbum?: string;
 }
 
 const ItemSongPage = ({
@@ -30,10 +31,11 @@ const ItemSongPage = ({
   hideAlbum,
   className,
   classNameChart,
+  classNameAlbum,
 }: ItemSongPageProps) => {
   return (
     <div className="zing_chart_item border-b border-[var(--border-secondary)]">
-      <div className="group flex select-none items-center p-2 hover:bg-[var(--alpha-bg)]">
+      <div className="group flex select-none items-center justify-between p-2 hover:bg-[var(--alpha-bg)]">
         <div className={clsx("mr-2 flex w-1/2 gap-2", className)}>
           {charts && (
             <div className="flex items-center justify-center text-xs font-bold text-[var(--song-item-action)]">
@@ -68,7 +70,7 @@ const ItemSongPage = ({
           ></InfoSongCurrent>
         </div>
         {!hideAlbum && (
-          <div className="flex-1 self-center">
+          <div className={clsx("flex-1 self-center", classNameAlbum)}>
             <Link
               className="text-xs text-[var(--song-item-action)] hover:underline"
               href={`/album/${data?.album?.encodeId}`}
